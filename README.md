@@ -8,6 +8,11 @@ yarn add global truffle
 truffle compile
 ```
 
+### Test smart contract
+```sh
+truffle test
+```
+
 ### Deploy smart contract to local blockchain
 ```sh
 truffle migrate --network develop
