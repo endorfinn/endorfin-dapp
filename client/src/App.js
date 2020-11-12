@@ -3,7 +3,8 @@ import { Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-d
 
 import SimpleStorageContract from "./contracts/SimpleStorage.json";
 import getWeb3 from "./getWeb3";
-import { MainPage, MyPage } from './pages'
+import { MainPage, MyPage } from './pages';
+import { Header, Navigation } from './components';
 
 import "./App.css";
 
@@ -41,6 +42,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Header />
+        <Navigation />
         <Router>
           <Switch>
             <Route exact path="/main" component={MainPage}/>
