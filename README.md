@@ -17,7 +17,6 @@ truffle test
 ```sh
 truffle migrate --network develop
 ```
-
 ### Run react
 ```sh
 cd client

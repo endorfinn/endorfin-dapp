@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "global": "^4.4.0",
+    "truffle": "^5.1.53"
+  },
+  "name": "endorfin-truffle",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/endorfinn/endorfin-truffle.git",
+  "author": "Seungyun Shin <69131878+yunny-modori@users.noreply.github.com>",
+  "license": "MIT"
+}
