@@ -42,9 +42,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <Navigation />
         <Router>
+          <Header />
           <Switch>
             <Route exact path="/main" component={MainPage}/>
             <Route exact path="/mypage" component={MyPage}/>
