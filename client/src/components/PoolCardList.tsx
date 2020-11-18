@@ -12,6 +12,12 @@ function PoolCardList() {
       <PoolCard pool={samplePool}/>
       <PoolCard pool={samplePool}/>
       <PoolCard pool={samplePool}/>
+      <PoolCard pool={samplePool}/>
+      <PoolCard pool={samplePool}/>
+      <PoolCard pool={samplePool}/>
+      <PoolCard pool={samplePool}/>
+      <PoolCard pool={samplePool}/>
+      <PoolCard pool={samplePool}/>
     </section>
   )
 }
