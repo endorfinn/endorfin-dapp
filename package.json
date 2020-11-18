@@ -6,7 +6,7 @@
   },
   "name": "endorfin-truffle",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.tsx",
   "repository": "https://github.com/endorfinn/endorfin-truffle.git",
   "author": "Seungyun Shin <69131878+yunny-modori@users.noreply.github.com>",
   "license": "MIT"
