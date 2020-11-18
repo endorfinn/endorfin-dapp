@@ -1,10 +1,13 @@
 import React from 'react';
 import { PoolCardList } from '../components';
+import styles from './MainPage.module.scss';
+import './MainPage.module.scss';
+
 
 function MainPage() {
   return (
     <>
-      <h1>Main Page</h1>
+      <main className={styles.main}>Main Page</main>
       <PoolCardList />
     </>
   )
