@@ -18,7 +18,7 @@ function Navigation() {
       </NavLink>
       <NavLink 
         className={styles.tab}
-        to="/dd" 
+        to="/poolprogress" 
         activeStyle={{
         fontWeight: "bold",
         color: "black",

@@ -4,9 +4,10 @@ import { Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-d
 import SimpleStorageContract from "./contracts/SimpleStorage.json";
 import getWeb3 from "./getWeb3";
 import { MainPage, MyPage } from './pages';
-import { Header, Navigation } from './components';
+import { Header } from './components';
 
 import "./App.css";
+import PoolProgressPage from "./pages/PoolProgressPage";
 
 class App extends Component {
   state = { storageValue: 0, web3: null, accounts: null, contract: null };
@@ -46,6 +47,7 @@ class App extends Component {
           <Header />
           <Switch>
             <Route exact path="/main" component={MainPage}/>
+            <Route exact path="/poolprogress" component={PoolProgressPage}/>
             <Route exact path="/mypage" component={MyPage}/>
             <Redirect exact to="/main" />
           </Switch>
