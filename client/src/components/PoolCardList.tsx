@@ -15,6 +15,10 @@ function PoolCardList() {
       {
        name: 'ETH',
        amount: "10"
+      }, 
+      {
+       name: 'XRC',
+       amount: "10"
       }
     ]
   }
