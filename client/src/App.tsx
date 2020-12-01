@@ -11,7 +11,8 @@ import "./App.css";
 import PoolProgressPage from "./pages/PoolProgressPage";
 
 function App() {
-  const { dispatch } = useContext(EndorfinContext);
+  const { dispatch, state } = useContext(EndorfinContext);
+  const { wallet } = state;
 
   const sethWeb3 = async () => {
     try {
@@ -43,7 +44,7 @@ function App() {
 
   useEffect(() => {
     sethWeb3()
-  });
+  }, [wallet]);
   
   return (
       <div className="App">

@@ -1,12 +1,9 @@
 import React, { createContext, Dispatch, useReducer } from 'react';
-import reducer, { Action } from './reducer';
-
-interface EndorfinState {
-  wallet: string;
-}
+import reducer, { Action, EndorfinState } from './reducer';
 
 const initialState: EndorfinState = {
   wallet: "",
+  contract: null
 };
 
 type EndorfinDispatch = Dispatch<Action>;

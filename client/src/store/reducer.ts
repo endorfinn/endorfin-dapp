@@ -2,7 +2,7 @@ type ActionType = "SET_WALLET" | "SET_CONTRACT";
 
 export interface EndorfinState {
   wallet: string;
-  contract: string;
+  contract: any;
 }
 
 export interface Action {

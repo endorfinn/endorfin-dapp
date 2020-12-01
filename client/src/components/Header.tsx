@@ -5,7 +5,7 @@ import './Header.module.scss';
 function Header() {
   return (
     <header>
-      <span>Endorfin</span>
+      <h3>Endorfin 🦈</h3>
       <Navigation />
     </header>
   )
