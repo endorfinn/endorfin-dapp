@@ -3,7 +3,9 @@ import reducer, { Action, EndorfinState } from './reducer';
 
 const initialState: EndorfinState = {
   wallet: "",
-  contract: null
+  contract: null,
+  web3: null,
+  daiContract: null,
 };
 
 type EndorfinDispatch = Dispatch<Action>;
