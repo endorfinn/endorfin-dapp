@@ -6,6 +6,7 @@ const initialState: EndorfinState = {
   contract: null,
   web3: null,
   daiContract: null,
+  chainLinkContract: null,
 };
 
 type EndorfinDispatch = Dispatch<Action>;

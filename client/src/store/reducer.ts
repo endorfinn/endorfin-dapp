@@ -1,10 +1,11 @@
- type ActionType = "SET_WALLET" | "SET_CONTRACT" | "SET_WEB3" | "SET_DAI_CONTRACT";
+type ActionType = "SET_WALLET" | "SET_CONTRACT" | "SET_WEB3" | "SET_DAI_CONTRACT" | "SET_CHAINLINK_CONTRACT";
 
 export interface EndorfinState {
   wallet: string;
   contract: any;
   web3: any;
   daiContract: any;
+  chainLinkContract: any;
 }
 
 export interface Action {
@@ -29,10 +30,15 @@ const reducer = (state: EndorfinState, action: Action) => {
         ...state,
         web3: action.value
       }
-      case 'SET_DAI_CONTRACT':
+    case 'SET_DAI_CONTRACT':
       return {
         ...state,
         daiContract: action.value
+      }
+    case 'SET_CHAINLINK_CONTRACT':
+      return {
+        ...state,
+        chainLinkContract: action.value
       }
     default: return state;
   }

@@ -9,7 +9,7 @@ import { EndorfinContext } from './store/store';
 
 import "./App.css";
 import PoolProgressPage from "./pages/PoolProgressPage";
-import { devAccCoinSetup, getDaiInstance, testAddress } from "./utils/devSettings";
+import { devAccCoinSetup, getChainLinkInstance, getDaiInstance, testAddress } from "./utils/devSettings";
 import Web3 from "web3";
 
 function App() {
@@ -33,10 +33,13 @@ function App() {
       dispatch({ type: "SET_WEB3", value: web3 });
 
       const daiInstance = await getDaiInstance(web3);
+      const chainLinkInstance = await getChainLinkInstance(web3);
 
-      await dispatch({ type: "SET_DAI_CONTRACT", value: daiInstance });
+      dispatch({ type: "SET_DAI_CONTRACT", value: daiInstance });
+      dispatch({ type: "SET_CHAINLINK_CONTRACT", value: daiInstance });
 
-      // await devAccCoinSetup(web3, daiInstance, testAddress);
+      const testAccounts = ['0x51C2723B15DA7CD45F203BE1FF3becB140E6F5d2', '0x91b90c9f75B22226Af40E058764bf30d1364589d', '0x16145059BCBB5cAf287ee807a3c5371a10292208']
+      await devAccCoinSetup(web3, daiInstance, chainLinkInstance, testAccounts);
 
     } catch (error) {
       // Catch any errors for any of the above operations.
@@ -48,19 +51,19 @@ function App() {
   }
 
   const checkMetamaskConnected = async () => {
-    if (window.ethereum) { 
+    if (window.ethereum) {
       const walletUnlocked = await window.ethereum._metamask.isUnlocked();
-       if (walletUnlocked) {
-          // TODO : 네트워크 local인 경우 체크
-          const web3 = new Web3(window.ethereum);
-          const accounts = await web3.eth.getAccounts();
-          setCurrentAccount(accounts)
-       }
+      if (walletUnlocked) {
+        // TODO : 네트워크 local인 경우 체크
+        const web3 = new Web3(window.ethereum);
+        const accounts = await web3.eth.getAccounts();
+        setCurrentAccount(accounts)
+      }
     }
   }
 
   const setCurrentAccount = async (accounts: string[]) => {
-      dispatch({ type: "SET_WALLET", value: accounts });
+    dispatch({ type: "SET_WALLET", value: accounts });
   }
 
   useEffect(() => {
