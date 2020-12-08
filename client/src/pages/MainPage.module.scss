@@ -24,7 +24,7 @@ main {
       align-items: center;
       background: white;
       width: 100%;
-      height: 26vh;
+      height: 32vh;
       margin-bottom: 40px;
       border-radius: 16px;
     }
@@ -39,4 +39,8 @@ main {
       border-radius: 16px;
     }
   }
+}
+
+.coin {
+  margin: 4px 0;
 }

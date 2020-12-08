@@ -3,8 +3,11 @@ import { Pool } from '../utils';
 import PoolCard from './PoolCard';
 import styles from './PoolCardList.module.scss';
 
+interface Props {
+  isPool: boolean;
+}
 
-function PoolCardList() {
+function PoolCardList(props: Props) {
   const samplePool: Pool = {
     name: 'pool 1',
     coin: [ 
@@ -25,15 +28,24 @@ function PoolCardList() {
 
   return (
     <section className={styles.poolCardList}>
-      <PoolCard pool={samplePool}/>
-      <PoolCard pool={samplePool}/>
-      <PoolCard pool={samplePool}/>
-      <PoolCard pool={samplePool}/>
-      <PoolCard pool={samplePool}/>
-      <PoolCard pool={samplePool}/>
-      <PoolCard pool={samplePool}/>
-      <PoolCard pool={samplePool}/>
-      <PoolCard pool={samplePool}/>
+      {props.isPool ? 
+      <>
+      <PoolCard pool={samplePool} isPool={props.isPool}/>
+      <PoolCard pool={samplePool} isPool={props.isPool}/>
+      <PoolCard pool={samplePool} isPool={props.isPool}/>
+      <PoolCard pool={samplePool} isPool={props.isPool}/>
+      <PoolCard pool={samplePool} isPool={props.isPool}/>
+      <PoolCard pool={samplePool} isPool={props.isPool}/>
+      <PoolCard pool={samplePool} isPool={props.isPool}/>
+      <PoolCard pool={samplePool} isPool={props.isPool}/>
+      <PoolCard pool={samplePool} isPool={props.isPool}/>
+      </>
+      : 
+      <>
+      <PoolCard pool={samplePool} isPool={props.isPool}/>
+      <PoolCard pool={samplePool} isPool={props.isPool}/>
+      <PoolCard pool={samplePool} isPool={props.isPool}/>
+      </>}
     </section>
   )
 }

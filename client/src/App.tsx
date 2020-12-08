@@ -9,7 +9,7 @@ import { EndorfinContext } from './store/store';
 
 import "./App.css";
 import PoolProgressPage from "./pages/PoolProgressPage";
-import { devAccCoinSetup, getChainLinkInstance, getDaiInstance, testAddress } from "./utils/devSettings";
+import { devAccCoinSetup, getChainLinkInstance, getDaiInstance } from "./utils/devSettings";
 import Web3 from "web3";
 
 function App() {
@@ -36,10 +36,10 @@ function App() {
       const chainLinkInstance = await getChainLinkInstance(web3);
 
       dispatch({ type: "SET_DAI_CONTRACT", value: daiInstance });
-      dispatch({ type: "SET_CHAINLINK_CONTRACT", value: daiInstance });
+      dispatch({ type: "SET_CHAINLINK_CONTRACT", value: chainLinkInstance });
 
       const testAccounts = ['0x51C2723B15DA7CD45F203BE1FF3becB140E6F5d2', '0x91b90c9f75B22226Af40E058764bf30d1364589d', '0x16145059BCBB5cAf287ee807a3c5371a10292208']
-      await devAccCoinSetup(web3, daiInstance, chainLinkInstance, testAccounts);
+      // await devAccCoinSetup(web3, daiInstance, chainLinkInstance, testAccounts);
 
     } catch (error) {
       // Catch any errors for any of the above operations.
@@ -78,7 +78,6 @@ function App() {
         <Switch>
           <Route exact path="/main" component={MainPage} />
           <Route exact path="/poolprogress" component={PoolProgressPage} />
-          <Route exact path="/mypage" component={MyPage} />
           <Redirect exact to="/main" />
         </Switch>
       </Router>

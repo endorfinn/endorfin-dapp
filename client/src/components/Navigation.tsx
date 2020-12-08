@@ -25,17 +25,6 @@ function Navigation() {
         borderBottom: "2px solid black"
       }}>
         <i className="fas fa-chart-bar fa-lg"></i>
-        <span className={styles.tabName}>Pool Progress</span>
-      </NavLink>
-      <NavLink 
-        className={styles.tab}
-        to="/mypage" 
-        activeStyle={{
-        fontWeight: "bold",
-        color: "black",
-        borderBottom: "2px solid black"
-      }}>
-        <i className="far fa-address-card fa-lg"></i>
         <span className={styles.tabName}>My Pool</span>
       </NavLink>
     </section>

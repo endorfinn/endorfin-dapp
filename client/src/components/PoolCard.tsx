@@ -3,9 +3,11 @@ import classNames from 'classnames';
 import Modal from 'react-modal';
 import { Pool } from '../utils';
 import styles from './PoolCard.module.scss';
+import PoolCardModal from './PoolCardModal';
 
 interface Props {
   pool: Pool;
+  isPool?: boolean;
 }
 
 function PoolCard(props: Props) {
@@ -29,7 +31,8 @@ function PoolCard(props: Props) {
       bottom  : 'auto',
       marginRight : '-50%',
       transform : 'translate(-50%, -50%)',
-      border: '2px solid grey',
+      border: '1px solid grey',
+      borderRadius: '16px',
     }
   };
 
@@ -41,26 +44,7 @@ function PoolCard(props: Props) {
             style={customStyles}
             contentLabel="Example Modal"
           >
-      <div className={styles.poolCardWrapper}>
-
-              <div className={styles.poolCard} onClick={openModal}>
-          <h4>{props.pool.name}</h4>
-          <div className={styles.mainCoins}>
-            <i className={classNames('fab fa-bitcoin fa-3x', styles.bitcoin)}></i>
-            <i className="fab fa-ethereum fa-3x"></i>
-          </div>
-          <div className={styles.coinInfoWrapper}>
-            {props.pool.coin.map((coin) => 
-            <div className={styles.coinInfo}>
-              <i className={classNames('fab fa-bitcoin', styles.bitcoin)}></i>
-              <span>{coin.name}</span>
-              <progress value="32" max="80" className={styles.bitcoi}></progress>{coin.amount}
-            </div>
-            )}
-          </div>
-        </div>
-        <button>참여하기</button>
-      </div>
+        <PoolCardModal isPool={props.isPool} />
       </Modal>
 
       <div className={styles.poolCardWrapper}>
