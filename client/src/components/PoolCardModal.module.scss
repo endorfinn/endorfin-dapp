@@ -1,0 +1,38 @@
+.poolCardModal {
+  height: 50%;
+  
+
+  // h3 {
+  //   height: 30px;
+  // }
+
+  .info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+
+    i {
+      margin: 0 24px 0 12px;
+    }
+    p {
+      margin-right: 24px;
+    }
+
+    i, p {
+      text-align: center;
+    }
+  }
+
+  h5 {
+    width: 120px;
+    text-align: center;
+    margin-right: 40px;
+    font-size: 1.2em;
+    margin: 0 40px 0 0;
+  }
+
+  .textfield {
+    width: 13vw;
+    margin: 24px 24px 24px 24px;
+  }
+}
