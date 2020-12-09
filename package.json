@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@openzeppelin/contracts": "^3.3.0",
+    "@openzeppelin/test-helpers": "^0.5.9",
     "express": "^4.17.1",
     "ganache-cli": "^6.12.1",
     "global": "^4.4.0",

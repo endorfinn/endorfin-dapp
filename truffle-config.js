@@ -7,8 +7,13 @@ module.exports = {
   networks: {
     develop: {
       host: '127.0.0.1',
-      network_id: '*',
+      network_id: '1',
       port: 8545
     }
-  }
+  },
+	compilers: {
+    solc: {
+      version: "0.7.3", // Fetch exact version from solc-bin (default: truffle's version)
+    },
+  },
 };
