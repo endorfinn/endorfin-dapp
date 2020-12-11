@@ -2,48 +2,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 11vw;
+  width: 14vw;
   min-width: 120px;
   min-height: 168px;
-  height: calc(11vw * 1.6);
+  height: calc(14vw * 1.5);
   margin-bottom: 4vh;
   font-family: Helvetica, sans-serif;
   
   .poolCard {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
     justify-content: space-around;
     width: 100%;
     height: 80%;
     background-color: #F0F0F0;
     border-radius: 12px;
     margin-bottom: 1vh;
-    
-    .mainCoins {
+    text-align: center;
+
+   
+
+
+    .poolCardHeader {
       display: flex;
       justify-content: space-around;
-      width: 82%;
-    }
-
-    i {
-      padding-right: 6px;
-    }
-
-    i.bitcoin {
-      color: rgb(247, 147, 37);
-    }
-
-    h4 {
-      margin: 0;
-    }
-
-    .coinInfoWrapper {
-      .coinInfo {
-        display: flex;
-        padding-bottom: 4px;
-        align-items: center;
-        font-size: 12px;
+      align-items: center;
 
         progress[value] {
           height: 0.8em;
@@ -60,9 +44,97 @@
         }
 
         progress::-webkit-progress-value {
-          background-color: rgb(172, 194, 236);
+          background-color: rgb(82, 3, 228);
+        }
+    }
+    
+    .mainCoins {
+      display: flex;
+      justify-content: space-around;
+      width: 82%;
+      margin: 0 auto;
+
+      img:nth-child(2) {
+        margin: 0 6px;
+      }
+
+      .etherImage {
+        content: url("../assets/ethereum.svg");
+        height: 3em;
+        width: 3em;
+     }
+  
+     .daiImage {
+      content: url("../assets/dai.svg");
+        height: 3em;
+        width: 3em;
+    }  
+      .linkImage {
+        content: url("../assets/link.svg");
+        width: 3em;
+        height: 3em;
+      }
+    }
+
+    i {
+      padding-right: 6px;
+    }
+
+    i.bitcoin {
+      color: rgb(247, 147, 37);
+    }
+
+    h4 {
+      margin: 0;
+    }
+
+    .coinInfoWrapper {
+      .coinInfoHeader, .coinInfo {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 6px;
+        text-align: center;
+        
+        span {
+          min-width: 30px;
+          font-size: 11px;
+        }
+        span:nth-child(2) {
+          margin: 0 4px;
         }
       }
+
+      .coinInfo { 
+        .coinName {
+          font-weight: bold;
+          font-size: 13px;
+        }
+      }
+
+      // .coinInfo {
+      //   display: flex;
+      //   padding-bottom: 4px;
+      //   align-items: center;
+      //   font-size: 12px;
+
+      //   progress[value] {
+      //     height: 0.8em;
+      //     width: 5em;
+      //     padding: 0 6px;
+      //   }
+
+      //   progress {
+      //     background-color: #F0F0F0;
+      //   }
+
+      //   progress::-webkit-progress-bar {
+      //     background-color:  #F0F0F0;;
+      //   }
+
+      //   progress::-webkit-progress-value {
+      //     background-color: rgb(172, 194, 236);
+      //   }
+      // }
     }
   }
 }

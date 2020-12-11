@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import Modal from 'react-modal';
 import { Pool } from '../utils';
 import styles from './PoolCard.module.scss';
@@ -49,22 +48,31 @@ function PoolCard(props: Props) {
 
       <div className={styles.poolCardWrapper}>
         <div className={styles.poolCard} onClick={openModal}>
-          <h4>{props.pool.name}</h4>
+          <div className={styles.poolCardHeader}>
+            <h4>{props.pool.name}</h4>
+            <progress value="32" max="80" className={styles.bitcoi}></progress>
+          </div>
           <div className={styles.mainCoins}>
-            <i className={classNames('fab fa-bitcoin fa-3x', styles.bitcoin)}></i>
-            <i className="fab fa-ethereum fa-3x"></i>
+            <img className={styles.etherImage} />
+            <img className={styles.daiImage} />
+            <img className={styles.linkImage} />
           </div>
           <div className={styles.coinInfoWrapper}>
+            <div className={styles.coinInfoHeader}>
+              <span></span>
+              <span>전체토큰</span>
+              <span>참여토큰</span>
+            </div>
             {props.pool.coin.map((coin) => 
             <div className={styles.coinInfo}>
-              <i className={classNames('fab fa-bitcoin', styles.bitcoin)}></i>
-              <span>{coin.name}</span>
-              <progress value="32" max="80" className={styles.bitcoi}></progress>{coin.amount}
+              <span className={styles.coinName}>{coin.name}</span>
+              <span>8</span>
+              <span>4</span>
             </div>
             )}
           </div>
         </div>
-        <span>4900$ / <strong>8000$</strong></span>
+        {/* <span>4900$ / <strong>8000$</strong></span> */}
       </div>
     </>
   )
