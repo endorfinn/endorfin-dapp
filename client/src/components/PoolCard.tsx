@@ -43,14 +43,14 @@ function PoolCard(props: Props) {
             style={customStyles}
             contentLabel="Example Modal"
           >
-        <PoolCardModal isPool={props.isPool} />
+        <PoolCardModal pool={props.pool} isPool={props.isPool} />
       </Modal>
 
       <div className={styles.poolCardWrapper}>
         <div className={styles.poolCard} onClick={openModal}>
           <div className={styles.poolCardHeader}>
             <h4>{props.pool.name}</h4>
-            <progress value="32" max="80" className={styles.bitcoi}></progress>
+            {/* <progress value="32" max="80" className={styles.bitcoi}></progress> */}
           </div>
           <div className={styles.mainCoins}>
             <img className={styles.etherImage} />
@@ -61,13 +61,13 @@ function PoolCard(props: Props) {
             <div className={styles.coinInfoHeader}>
               <span></span>
               <span>전체토큰</span>
-              <span>참여토큰</span>
+            {props.isPool && <span>참여토큰</span> }
             </div>
             {props.pool.coin.map((coin) => 
             <div className={styles.coinInfo}>
               <span className={styles.coinName}>{coin.name}</span>
-              <span>8</span>
-              <span>4</span>
+            <span>{coin.amount}</span>
+            {props.isPool && <span>{coin.currentAmount}</span> }
             </div>
             )}
           </div>

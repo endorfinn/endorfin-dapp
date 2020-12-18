@@ -4,7 +4,7 @@ export const chainLinkRichAddress = '0x98c63b7b319dfbdf3d811530f2ab9dfe4983af9d'
 export const daiRichAddress = '0x66c57bF505A85A74609D2C83E94Aabb26d691E1F';
 export const etherRichAddress = '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2';
 
-const apiKey = '';
+const apiKey = 'PA66H1YP2ZK9Z39T88ZBH6F992Z8II9ZAY';
 
 export const getDaiInstance = async (web3: any) => new Promise((resolve) =>
   $.getJSON(`https://api.etherscan.io/api?module=contract&action=getabi&address=0x6b175474e89094c44da98b954eedeac495271d0f&apikey=${apiKey}`, async function (data: any) {

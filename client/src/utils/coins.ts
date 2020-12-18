@@ -1,6 +1,7 @@
 export interface Coin {
   name: string;
   amount: string;
+  currentAmount: string;
 }
 
 export class CoinImage {

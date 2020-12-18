@@ -31,8 +31,14 @@ function App() {
       dispatch({ type: "SET_CONTRACT", value: instance });
       dispatch({ type: "SET_WEB3", value: web3 });
 
+
+      // console.log("인스탄스");
+
       const daiInstance = await getDaiInstance(web3);
       const chainLinkInstance = await getChainLinkInstance(web3);
+
+      console.log(chainLinkInstance);
+      console.log("인스탄스");
 
       dispatch({ type: "SET_DAI_CONTRACT", value: daiInstance });
       dispatch({ type: "SET_CHAINLINK_CONTRACT", value: chainLinkInstance });
