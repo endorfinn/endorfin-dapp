@@ -1,4 +1,10 @@
-type ActionType = "SET_WALLET" | "SET_CONTRACT" | "SET_WEB3" | "SET_DAI_CONTRACT" | "SET_CHAINLINK_CONTRACT";
+type ActionType = "SET_WALLET" | "SET_CONTRACT" | "SET_WEB3" | "SET_DAI_CONTRACT" | "SET_CHAINLINK_CONTRACT"|"SET_COIN_PRICE_BY_TIME"|"SET_ORACLE_CONTRACT";
+
+interface CoinPricesByTime {
+  daiByTime: number[];
+  ethByTime: number[];
+  snxByTime: number[];
+}
 
 export interface EndorfinState {
   wallet: string;
@@ -6,6 +12,8 @@ export interface EndorfinState {
   web3: any;
   daiContract: any;
   chainLinkContract: any;
+  coinPricesByTime: CoinPricesByTime | null;
+  oracleContract: any;
 }
 
 export interface Action {
@@ -40,6 +48,18 @@ const reducer = (state: EndorfinState, action: Action) => {
         ...state,
         chainLinkContract: action.value
       }
+    case 'SET_COIN_PRICE_BY_TIME':
+      return {
+        ...state,
+        coinPricesByTime: action.value
+      }
+    case 'SET_ORACLE_CONTRACT':
+      return {
+        ...state,
+        oracleContract: action.value
+      }
+
+    
     default: return state;
   }
 }

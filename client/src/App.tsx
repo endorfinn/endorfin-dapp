@@ -11,6 +11,8 @@ import "./App.css";
 import { devAccCoinSetup, getChainLinkInstance, getDaiInstance } from "./utils/devSettings";
 import Web3 from "web3";
 
+import {address as oracleAddress, abi as oracleABI} from './utils/oracleContract'
+
 function App() {
   const { dispatch, state } = useContext(EndorfinContext);
   const { wallet, web3 } = state;
@@ -27,21 +29,13 @@ function App() {
         PoolProposalFactoryContract.abi,
         deployedNetwork && deployedNetwork.address,
       );
+      
+      const oracleInstance = await new web3.eth.Contract(oracleABI, oracleAddress);
+  
 
       dispatch({ type: "SET_CONTRACT", value: instance });
       dispatch({ type: "SET_WEB3", value: web3 });
-
-
-      // console.log("인스탄스");
-
-      const daiInstance = await getDaiInstance(web3);
-      const chainLinkInstance = await getChainLinkInstance(web3);
-
-      console.log(chainLinkInstance);
-      console.log("인스탄스");
-
-      dispatch({ type: "SET_DAI_CONTRACT", value: daiInstance });
-      dispatch({ type: "SET_CHAINLINK_CONTRACT", value: chainLinkInstance });
+      dispatch({ type: "SET_ORACLE_CONTRACT", value: oracleInstance})
 
       const testAccounts = ['0x51C2723B15DA7CD45F203BE1FF3becB140E6F5d2', '0x91b90c9f75B22226Af40E058764bf30d1364589d', '0x16145059BCBB5cAf287ee807a3c5371a10292208']
       // await devAccCoinSetup(web3, daiInstance, chainLinkInstance, testAccounts);
