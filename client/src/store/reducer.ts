@@ -12,7 +12,7 @@ export interface EndorfinState {
   web3: any;
   daiContract: any;
   chainLinkContract: any;
-  coinPricesByTime: CoinPricesByTime | null;
+  coinPricesByTime: CoinPricesByTime;
   oracleContract: any;
 }
 

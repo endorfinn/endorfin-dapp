@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from 'react'
-import Web3 from 'web3'
 import { EndorfinContext } from '../../../store/store'
 
 function ProgressTable() {
@@ -7,8 +6,10 @@ function ProgressTable() {
   const { coinPricesByTime, web3, oracleContract } = state
   
   const getPrice = async () => {
-    if (oracleContract) {
+    if (oracleContract && coinPricesByTime) { 
         const newEthPrice = await oracleContract.methods.getLatestETH().call();
+        const newCoinPricesByTime = coinPricesByTime.ethByTime?.push(newEthPrice);
+        dispatch({type: "SET_COIN_PRICE_BY_TIME" ,value : newCoinPricesByTime});
     }
   }
   
