@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const app = express();
 const port = process.env.PORT || 5000;
-require('./batch');
+require('./batch/batch');
 dotenv.config();
 
 const coinOracleRoutes = require('./routes/coinOracle');
