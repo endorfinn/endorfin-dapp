@@ -20,16 +20,16 @@ function PoolCardModal(props: Props) {
         <h5>Token</h5> <i className="fab fa-ethereum txt"></i> <i className="fab fa-ethereum txt"></i> <i className="fab fa-ethereum txt"></i>
       </div>
       <div className={styles.info}>
-        <h5>전체</h5> <p>100</p> <p>80</p> <p>5</p>
+        <h5>전체</h5> <p style = {{marginLeft : "15px"}}>1</p> <p style = {{marginLeft : "12px"}}>2</p> <p style = {{marginLeft : "12px"}}>3</p>
       </div>
       <div className={styles.info}>
-        <h5>현재</h5> <p>20</p> <p>5</p> <p>2</p>
+        <h5>현재</h5> <p style = {{marginLeft : "10px"}}>0.2</p> <p style = {{marginLeft : "3px"}}>0.4</p> <p style = {{marginLeft : "1px"}}>0.6</p>
       </div>
       <div className={styles.info}>
-        <h5>참여 기간</h5> <p>6개월</p> <h5>옵션</h5> <p>10000 DAI</p>
+        <h5>참여 기간</h5> <p>6개월</p> <h5 style = {{marginLeft : "90px"}}>행사가격</h5> <p>5000 DAI</p>
       </div>
       <div className={styles.info}>
-        <h5>모집 마감일</h5> <p>2020.12.05 (UTC)</p> <h5>프리미엄</h5> <p>1 Dai</p>
+        <h5>모집 마감일</h5> <p>2020.12.05 (UTC)</p> <h5>프리미엄</h5> <p>2 DAI</p>
       </div>
 
       { props.isPool ?

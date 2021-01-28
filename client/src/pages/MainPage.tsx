@@ -5,6 +5,8 @@ import styles from './MainPage.module.scss';
 import './MainPage.module.scss';
 import { EndorfinContext } from '../store/store';
 import { Button } from '@material-ui/core';
+import HotDealPool from '../components/HotDeal.tsx';
+
 
 function MainPage() {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -120,8 +122,11 @@ function MainPage() {
             </>}
         </div>
         <div className={styles.hotdeal}>
-          <h3>나를 위한 풀 추천 👍🏻</h3>
-
+          <h3 id="recommnedH3">나를 위한 풀 추천 👍🏻</h3>
+          
+          
+          <HotDealPool title= '관악산풀' isFulled= {true}></HotDealPool>
+          <HotDealPool title= '청룡산풀' isFulles= {false}></HotDealPool>
         </div>
       </section>
     </main>

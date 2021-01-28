@@ -1,0 +1,41 @@
+.wrapper {
+    width : 80vh;
+    height: 156px;
+    border-radius: 2vh;
+    box-shadow: 0px 5px 5px 1px  rgba(188,188,188,0.5);
+    background-color: #f0f0f0;
+    margin-bottom: 30px;
+    h3{
+        margin-left: 20px;
+        margin-bottom: 1px;
+    }
+}
+
+
+
+.wrapperProgress{
+    width : 80vh;
+    height: 156px;
+    border-radius: 2vh;
+    border: 2px solid #53D6ff;
+    background-color: #fff;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 5px 1px rgba(188,188,188,0.5);
+    margin-bottom: 30px;
+    h3{
+        margin-left: 20px;
+        margin-bottom: 1px;
+    }
+}
+
+table {
+    width : 80vh;
+    height : 30vh;
+    thead{
+        text-align: center;
+    }
+    tbody{
+        text-align: center;
+    }
+   
+}

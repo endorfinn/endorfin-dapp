@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Button, InputAdornment, TextField } from '@material-ui/core';
 import styles from './PoolProposal.module.scss';
 import { EndorfinContext } from '../store/store';
+import { red } from '@material-ui/core/colors';
 
 function PoolProposal() {
   const { state } = useContext(EndorfinContext);
@@ -42,9 +43,9 @@ function PoolProposal() {
 
   return (
     <form className={styles.poolProposal}>
-      <h3>Pool 제안하기</h3>
+      <h3 style={{textAlign : "left"}}>Pool 제안하기</h3>
       <div className={styles.inputWrapper}>
-        <h4 style={{ marginRight: '3em' }}>Pool 구성 토큰</h4>
+        <h4 style={{ marginRight: '3em',textAlign : "right"}}>코인/토큰 개수 입력</h4>
         <TextField
           className={styles.textfield}
           type="number"
@@ -91,21 +92,36 @@ function PoolProposal() {
         />
       </div>
       <div className={styles.inputWrapper}>
-      <h4>Pool 모집 시작(UTC)</h4>
+      <h4 style={{textAlign : "right"}}>Pool 모집 시작</h4>
       <TextField
         className={styles.textfield}
         type="date"
         defaultValue="2020-12-04"
       />
-      <h4>Pool 모집 마감(시작일 24시간 후)</h4>
+      <h4 style={{textAlign : "right",marginLeft : "30px"}}>Pool 모집 마감(시작일 24시간 후)</h4>
       <TextField
         className={styles.textfield}
         type="text"
         defaultValue="2020/12/05"
       />
       </div>
+      
+        <div className={styles.inputWrapper}>
+      <h4 style={{textAlign : "right"}}>옵션 모집 시작</h4>
+      <TextField
+        className={styles.textfield}
+        type="text"
+        defaultValue="2020/12/06"
+      />
+      <h4 style={{textAlign : "right",marginLeft : "40px"}}>옵션 모집 만기(시작일 24시간 후)</h4>
+      <TextField
+        className={styles.textfield}
+        type="text"
+        defaultValue="2020/12/07"
+      />
+      </div>
       <div className={styles.inputWrapper}>
-        <h4 style={{ marginRight: '3em' }}>옵션 행사가격</h4>
+        <h4 style={{ marginRight: '0.5em' , textAlign : "right"}}>옵션 행사가격</h4>
         <TextField
           className={styles.textfield}
           type="number"
@@ -120,45 +136,31 @@ function PoolProposal() {
             ),
           }}
         />
+        <h4 style = {{marginLeft : "180px", textAlign : "right"}}>옵션만기일</h4>
+        <TextField
+        className={styles.textfield}
+        type="date"
+        defaultValue="2020-12-08"
+      />
+        
         </div>
-        <div className={styles.inputWrapper}>
-      <h4>옵션 모집 시작</h4>
-      <TextField
-        className={styles.textfield}
-        type="text"
-        defaultValue="2020/12/06"
-      />
-      <h4>옵션 모집 만기(시작일 24시간 후)</h4>
-      <TextField
-        className={styles.textfield}
-        type="text"
-        defaultValue="2020/12/07"
-      />
-      </div>
+
 
       <div className={styles.inputWrapper}>
-      <h4>옵션 프리미엄</h4>
+      <h4 style={{textAlign : "right"}}>옵션 프리미엄/주기</h4>
       <TextField
         className={styles.textfield}
         type="text"
       />
-      <h5>개월 마다</h5>
+      <h3>DAI</h3><h2 style = {{marginLeft : "30px"}}>/</h2>
       <TextField
         className={styles.textfield}
         type="text"
       />
-      <h5>Dai</h5>
+      <h5>시간</h5>
       </div>
-      <div className={styles.inputWrapper}>
-      <h4>Pool 기간</h4>
-      <TextField
-        className={styles.textfield}
-        type="number"
-        defaultValue="6"
-      />
-      <h5> 개월</h5>
-      </div>
-      <Button onClick={onSubmit}><h3>제안하기 🐬</h3></Button>
+      <Button onClick={onSubmit} style = {{color : "red"}}><h3>제안하기</h3></Button>
+      <Button onClick={onSubmit}><h3>다음에</h3></Button>
     </form>
   )
 }
