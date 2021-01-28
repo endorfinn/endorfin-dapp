@@ -5,7 +5,7 @@ import styles from './MainPage.module.scss';
 import './MainPage.module.scss';
 import { EndorfinContext } from '../store/store';
 import { Button } from '@material-ui/core';
-import HotDealPool from '../components/HotDeal.tsx';
+import HotDealPool from '../components/HotDeal';
 
 
 function MainPage() {

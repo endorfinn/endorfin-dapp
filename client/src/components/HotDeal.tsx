@@ -7,7 +7,6 @@ interface Props {
 }
 
 
-
 function HotDeal(props : Props){
 
     let hotdealStyle = props.isFulled ? styles.wrapper : styles.wrapperProgress;
@@ -15,6 +14,9 @@ function HotDeal(props : Props){
     return(
         <div className={hotdealStyle}>
             <h3>{props.title}</h3>
+            <div className={styles.progressBarInside}></div>
+            <div className={styles.progressBar}></div>
+            
             <table>
                 <thead>
                     <tr>
