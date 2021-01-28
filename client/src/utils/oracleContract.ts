@@ -6,51 +6,22 @@ export const abi = [
 	},
 	{
 		"inputs": [],
-		"name": "getLatestAAVE",
+		"name": "getLatestBNB",
 		"outputs": [
 			{
 				"internalType": "int256",
-				"name": "",
+				"name": "price",
 				"type": "int256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "getLatestAAVEDate",
-		"outputs": [
+			},
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "timeStamp",
 				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "getLatestBTC",
-		"outputs": [
+			},
 			{
-				"internalType": "int256",
-				"name": "",
-				"type": "int256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "getLatestBTCDate",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
+				"internalType": "uint80",
+				"name": "roundID",
+				"type": "uint80"
 			}
 		],
 		"stateMutability": "view",
@@ -62,21 +33,18 @@ export const abi = [
 		"outputs": [
 			{
 				"internalType": "int256",
-				"name": "",
+				"name": "price",
 				"type": "int256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "getLatestDAIDate",
-		"outputs": [
+			},
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "timeStamp",
 				"type": "uint256"
+			},
+			{
+				"internalType": "uint80",
+				"name": "roundID",
+				"type": "uint80"
 			}
 		],
 		"stateMutability": "view",
@@ -88,8 +56,18 @@ export const abi = [
 		"outputs": [
 			{
 				"internalType": "int256",
-				"name": "",
+				"name": "price",
 				"type": "int256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "timeStamp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint80",
+				"name": "roundID",
+				"type": "uint80"
 			}
 		],
 		"stateMutability": "view",
@@ -97,11 +75,71 @@ export const abi = [
 	},
 	{
 		"inputs": [],
-		"name": "getLatestETHDate",
+		"name": "getLatestEndorfinOracle",
 		"outputs": [
 			{
+				"internalType": "int256",
+				"name": "ETHprice",
+				"type": "int256"
+			},
+			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "ETHtimeStamp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint80",
+				"name": "ETHroundID",
+				"type": "uint80"
+			},
+			{
+				"internalType": "int256",
+				"name": "SNXprice",
+				"type": "int256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "SNXtimeStamp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint80",
+				"name": "SNXroundID",
+				"type": "uint80"
+			},
+			{
+				"internalType": "int256",
+				"name": "DAIprice",
+				"type": "int256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "DAItimeStamp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint80",
+				"name": "DAIroundID",
+				"type": "uint80"
+			},
+			{
+				"internalType": "int256",
+				"name": "BNBprice",
+				"type": "int256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "BNBtimeStamp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint80",
+				"name": "BNBroundID",
+				"type": "uint80"
+			},
+			{
+				"internalType": "uint256",
+				"name": "time",
 				"type": "uint256"
 			}
 		],
@@ -114,21 +152,18 @@ export const abi = [
 		"outputs": [
 			{
 				"internalType": "int256",
-				"name": "",
+				"name": "price",
 				"type": "int256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "getLatestSNXDate",
-		"outputs": [
+			},
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "timeStamp",
 				"type": "uint256"
+			},
+			{
+				"internalType": "uint80",
+				"name": "roundID",
+				"type": "uint80"
 			}
 		],
 		"stateMutability": "view",
@@ -136,4 +171,4 @@ export const abi = [
 	}
 ];
 
-export const address = "0xA6485a9a707AEfF6de7CF757C5519998f2A2ABCB";
+export const address = "0xb6007757649157e3dc3c44733b624bbee9202764";

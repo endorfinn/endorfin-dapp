@@ -8,7 +8,6 @@ const getWeb3 = () =>
           process.env.REACT_APP_WEB3_HTTP_PROVIDER_URI!
       );
       const web3 = new Web3(provider);
-        console.log(process.env.REACT_APP_DDD);
         resolve(web3);
     });
   });
