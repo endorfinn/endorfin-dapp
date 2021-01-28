@@ -123,10 +123,8 @@ function MainPage() {
         </div>
         <div className={styles.hotdeal}>
           <h3 id="recommnedH3">나를 위한 풀 추천 👍🏻</h3>
-          
-          
           <HotDealPool title= '관악산풀' isFulled= {true}></HotDealPool>
-          <HotDealPool title= '청룡산풀' isFulles= {false}></HotDealPool>
+          <HotDealPool title= '청룡산풀' isFulled= {false}></HotDealPool>
         </div>
       </section>
     </main>
