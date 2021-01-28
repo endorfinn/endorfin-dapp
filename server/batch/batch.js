@@ -10,7 +10,7 @@ const callChainlinkOracle = async () => {
     return await oracleInstance.methods.getLatestEndorfinOracle().call();
 }
 
-cron.schedule('2 * * * *', async () => {
+cron.schedule('*/2 * * * *', async () => {
     const { ETHprice,
         ETHtimeStamp,
         ETHroundID,
@@ -29,26 +29,27 @@ cron.schedule('2 * * * *', async () => {
     const param = {
         eth: {
             price: ETHprice,
-            timeStamp: ETHtimeStamp,
+            timestamp: ETHtimeStamp,
             roundId: ETHroundID,
         },
         dai: {
             price: DAIprice,
-            timeStamp: DAItimeStamp,
+            timestamp: DAItimeStamp,
             roundId: DAIroundID,
         },
         bnb: {
             price: BNBprice,
-            timeStamp: BNBtimeStamp,
+            timestamp: BNBtimeStamp,
             roundId: BNBroundID,
         },
         snx: {
             price: SNXprice,
-            timeStamp: SNXtimeStamp,
+            timestamp: SNXtimeStamp,
             roundId: SNXroundID,
         },
         callTime: time
     }
 
-    await coinOracleService.create(param.eth, param.dai, param.bnb, param.snx, param.callTime);
+    const coinOracle = await coinOracleService.create(param.eth, param.dai, param.bnb, param.snx, param.callTime);
+    console.debug(coinOracle);
 });
