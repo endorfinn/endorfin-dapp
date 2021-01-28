@@ -1,8 +1,28 @@
 const { validationResult } = require('express-validator');
 const HttpError = require('../models/http-error');
-const create = require('../services/coinOracle');
+const coinOracleService = require('../services/coinOracle');
+
+const getCoinOracle = async (req, res, next) => {
+  const { callTime } = req.body;
+  // TODO: validation 넣기
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return next(
+        new HttpError('Invalid params', 400),
+    );
+  }
+
+  const coinOracle = await coinOracleService.get(callTime);
+
+  if (!coinOracle.length) {
+    return next(new HttpError('Could not find any coin oracle', 404));
+  }
+
+  res.json({ coinOracle })
+}
 
 const createCoinOracle = async (req, res, next) => {
+  // TODO: validation 넣기
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return next(
@@ -16,7 +36,7 @@ const createCoinOracle = async (req, res, next) => {
 
   let coinOracle;
   try {
-    coinOracle = await create(
+    coinOracle = await coinOracleService.create(
         eth, dai, bnb, snx, callTime
     );
   } catch (err) {
@@ -32,3 +52,4 @@ const createCoinOracle = async (req, res, next) => {
 };
 
 exports.createCoinOracle = createCoinOracle;
+exports.getCoinOracle = getCoinOracle;

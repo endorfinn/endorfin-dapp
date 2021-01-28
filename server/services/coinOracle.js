@@ -1,5 +1,10 @@
 const CoinOracle = require('../models/coinOracle');
 
+const get = async (callTime) => {
+  const coinOracle = CoinOracle.find({ callTime: { $gte: callTime } }).exec();
+  return coinOracle;
+}
+
 const create = async (eth, dai, bnb, snx, callTime) => {
   const coinOracle = new CoinOracle({
     eth, dai, bnb, snx, callTime
@@ -8,4 +13,5 @@ const create = async (eth, dai, bnb, snx, callTime) => {
   return result;
 };
 
-module.exports = create;
+exports.create = create;
+exports.get = get;
