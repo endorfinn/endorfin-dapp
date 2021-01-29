@@ -1,3 +1,5 @@
+const address = "0x7A2c40D5744ff3556CE5d47f81b6dDD994effc36";
+
 const abi = [
 	{
 		"inputs": [],
@@ -10,17 +12,17 @@ const abi = [
 		"outputs": [
 			{
 				"internalType": "int256",
-				"name": "price",
+				"name": "BNBprice",
 				"type": "int256"
 			},
 			{
 				"internalType": "uint256",
-				"name": "timeStamp",
+				"name": "BNBtimeStamp",
 				"type": "uint256"
 			},
 			{
 				"internalType": "uint80",
-				"name": "roundID",
+				"name": "BNBroundID",
 				"type": "uint80"
 			}
 		],
@@ -33,40 +35,17 @@ const abi = [
 		"outputs": [
 			{
 				"internalType": "int256",
-				"name": "price",
+				"name": "DAIprice",
 				"type": "int256"
 			},
 			{
 				"internalType": "uint256",
-				"name": "timeStamp",
+				"name": "DAItimeStamp",
 				"type": "uint256"
 			},
 			{
 				"internalType": "uint80",
-				"name": "roundID",
-				"type": "uint80"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "getLatestETH",
-		"outputs": [
-			{
-				"internalType": "int256",
-				"name": "price",
-				"type": "int256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "timeStamp",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint80",
-				"name": "roundID",
+				"name": "DAIroundID",
 				"type": "uint80"
 			}
 		],
@@ -139,8 +118,31 @@ const abi = [
 			},
 			{
 				"internalType": "uint256",
-				"name": "time",
+				"name": "standardTimeStamp",
 				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getLatestETH",
+		"outputs": [
+			{
+				"internalType": "int256",
+				"name": "ETHprice",
+				"type": "int256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "ETHtimeStamp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint80",
+				"name": "ETHroundID",
+				"type": "uint80"
 			}
 		],
 		"stateMutability": "view",
@@ -152,17 +154,17 @@ const abi = [
 		"outputs": [
 			{
 				"internalType": "int256",
-				"name": "price",
+				"name": "SNXprice",
 				"type": "int256"
 			},
 			{
 				"internalType": "uint256",
-				"name": "timeStamp",
+				"name": "SNXtimeStamp",
 				"type": "uint256"
 			},
 			{
 				"internalType": "uint80",
-				"name": "roundID",
+				"name": "SNXroundID",
 				"type": "uint80"
 			}
 		],
@@ -171,9 +173,7 @@ const abi = [
 	}
 ];
 
-const address = "0xb6007757649157e3dc3c44733b624bbee9202764";
-
 module.exports = {
-	abi,
-	address
+    address,
+    abi
 }

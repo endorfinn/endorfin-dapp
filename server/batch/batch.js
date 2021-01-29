@@ -11,7 +11,8 @@ const callChainlinkOracle = async () => {
 }
 
 cron.schedule('*/2 * * * *', async () => {
-    const { ETHprice,
+    const {
+        ETHprice,
         ETHtimeStamp,
         ETHroundID,
         SNXprice,
@@ -23,8 +24,8 @@ cron.schedule('*/2 * * * *', async () => {
         BNBprice,
         BNBtimeStamp,
         BNBroundID,
-        time
-    } = await callChainlinkOracle()
+        standardTimeStamp
+    } = await callChainlinkOracle();
 
     const param = {
         eth: {
@@ -47,7 +48,7 @@ cron.schedule('*/2 * * * *', async () => {
             timestamp: SNXtimeStamp,
             roundId: SNXroundID,
         },
-        callTime: time
+        callTime: standardTimeStamp
     }
 
     const coinOracle = await coinOracleService.create(param.eth, param.dai, param.bnb, param.snx, param.callTime);
