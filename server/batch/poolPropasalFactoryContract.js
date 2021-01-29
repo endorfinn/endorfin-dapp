@@ -113,7 +113,7 @@ const abi = [
 	}
 ];
 
-exports.module = {
+module.exports = {
     address,
     abi
 }

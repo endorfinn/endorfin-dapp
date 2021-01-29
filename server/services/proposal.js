@@ -1,4 +1,5 @@
 const Proposal = require('../models/proposal');
+const { createProposal } = require("../web3/proposal");
 
 const create = async (
     proposer,
@@ -12,7 +13,24 @@ const create = async (
     commission,
     name,
     symbol,
+    networkName
     ) => {
+
+    await createProposal(
+        proposer,
+        proposalTokens,
+        totalTokenAmount,
+        fundingStartTimestamp,
+        fundingEndTimestamp,
+        optionPrice,
+        optionPremium,
+        optionInterval,
+        commission,
+        name,
+        symbol,
+        networkName
+    )
+
     const proposal = new Proposal({
         proposer,
         proposalTokens,
@@ -26,6 +44,7 @@ const create = async (
         name,
         symbol,
     });
+
     const result = await proposal.save();
     return result;
 };
