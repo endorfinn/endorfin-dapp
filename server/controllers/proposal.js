@@ -25,6 +25,7 @@ const createProposal = async (
     commission,
     name,
     symbol,
+    networkName,
   } = req.body;
 
   let proposal;
@@ -41,6 +42,7 @@ const createProposal = async (
         commission,
         name,
         symbol,
+        networkName,
     );
   } catch (err) {
     const error = new HttpError(

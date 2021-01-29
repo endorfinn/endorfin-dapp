@@ -16,7 +16,7 @@ const create = async (
     networkName
     ) => {
 
-    await createProposal(
+    const deployedProposal = await createProposal(
         proposer,
         proposalTokens,
         totalTokenAmount,
@@ -29,7 +29,7 @@ const create = async (
         name,
         symbol,
         networkName
-    )
+    );
 
     const proposal = new Proposal({
         proposer,
