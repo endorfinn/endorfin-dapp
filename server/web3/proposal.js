@@ -1,5 +1,5 @@
-const { getWeb3 } = require("../batch/getWeb3");
-const { address, abi } = require("../batch/poolPropasalFactoryContract");
+const { getWeb3 } = require("./getWeb3");
+const { address, abi } = require("./contracts/poolPropasalFactoryContract");
 
 const validateAddress = async (address) => {
     return await web3.utils.isAddress(address);

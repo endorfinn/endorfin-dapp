@@ -1,6 +1,6 @@
-const { abi, address } = require('./oracleContract');
+const { abi, address } = require('../web3/contracts/oracleContract');
 const cron = require('node-cron');
-const { getWeb3 } = require('./getWeb3')
+const { getWeb3 } = require('../web3/getWeb3')
 const coinOracleService = require('../services/coinOracle');
 
 const callChainlinkOracle = async () => {
