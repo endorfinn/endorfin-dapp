@@ -44,7 +44,7 @@ const createProposal = async (
     );
   } catch (err) {
     const error = new HttpError(
-      'Creating coinOracle failed',
+      `Creating coinOracle failed. ${err}`,
       500,
     );
     console.error(err);
