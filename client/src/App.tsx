@@ -43,9 +43,9 @@ function App() {
 
     } catch (error) {
       // Catch any errors for any of the above operations.
-      alert(
-        `Web3 연결에 실패했습니다 😥 체인 연결 상태를 확인해주세요!`,
-      );
+      // alert(
+      //   `Web3 연결에 실패했습니다 😥 체인 연결 상태를 확인해주세요!`,
+      // );
       console.error(error);
     }
   }
