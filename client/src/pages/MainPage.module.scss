@@ -8,6 +8,12 @@ main {
     background: white;
     border-radius: 16px;
 
+    .pickButton{
+      
+      width: 52px;
+      height: 35px;
+    }
+
     h2 {
       margin: 48px 0 40px 36px;
     }
@@ -24,6 +30,7 @@ main {
       align-items: center;
       background: white;
       width: 100%;
+      min-width: 350px;
       height: auto;
       margin-bottom: 40px;
       border-radius: 16px;
@@ -40,6 +47,7 @@ main {
       width: 100%;
       height: auto;
       border-radius: 16px;
+      min-width: 350px;
     }
   }
 }

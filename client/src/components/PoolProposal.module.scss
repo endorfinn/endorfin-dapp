@@ -3,9 +3,22 @@
   flex-direction: column;
   padding: 12px 24px;
   
+  .coinAddBtn{
+    background-color: #d51010;
+    border: #ffb6b6;
+    width: 145px;
+    height: 35px;
+    color: #fff;
+    border-radius: 10px;
 
-  h3 {
+    &:hover{
+      background-color: #9c8f8f;
+    }
+  }
+  #modalTitle {
     text-align: center;
+    font-size: 30px;
+    font-weight: 600;
   }
 
   .inputWrapper {

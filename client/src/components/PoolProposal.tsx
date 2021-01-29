@@ -40,12 +40,14 @@ function PoolProposal() {
   useEffect(() => {
     // getBalancesFromUserAddress();
   })
-
+  let isSelected : boolean = false;
   return (
     <form className={styles.poolProposal}>
-      <h3 style={{textAlign : "left"}}>Pool 제안하기</h3>
+      <h3 id="modalTitle">Pool 제안하기</h3>
       <div className={styles.inputWrapper}>
         <h4 style={{ marginRight: '3em',textAlign : "right"}}>코인/토큰 개수 입력</h4>
+        {(isSelected) ? 
+        <>
         <TextField
           className={styles.textfield}
           type="number"
@@ -90,6 +92,12 @@ function PoolProposal() {
             ),
           }}
         />
+        <button className={styles.coinAddBtn}>코인 선택하기</button>
+        </> : <button className={styles.coinAddBtn}>코인 선택하기</button>
+}
+
+
+
       </div>
       <div className={styles.inputWrapper}>
       <h4 style={{textAlign : "right"}}>Pool 모집 시작</h4>

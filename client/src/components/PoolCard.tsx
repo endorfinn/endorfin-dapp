@@ -55,7 +55,7 @@ function PoolCard(props: Props) {
           <div className={styles.mainCoins}>
             <img className={styles.etherImage} />
             <img className={styles.daiImage} />
-            <img className={styles.linkImage} />
+            <img className={styles.snxImage} />
           </div>
           <div className={styles.coinInfoWrapper}>
             <div className={styles.coinInfoHeader}>

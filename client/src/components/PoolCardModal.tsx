@@ -1,5 +1,7 @@
 import { TextField, InputAdornment, Button } from '@material-ui/core';
 import React, { useContext, useEffect, useState } from 'react';
+import Modal from 'react-modal';
+import { PoolCardList, PoolProposal } from '../components';
 
 import styles from './PoolCardModal.module.scss';
 

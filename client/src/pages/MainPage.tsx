@@ -63,6 +63,20 @@ function MainPage() {
       borderRadius: '16px',
     }
   };
+  const proposalStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      border: '2px solid #D51010',
+      width: '70vw',
+      height: '78vh',
+      borderRadius: '16px',
+    }
+  };
 
   const connectWallet = async () => {
     if (!state.wallet.length) {
@@ -74,9 +88,9 @@ function MainPage() {
 
   const showMyCoins = () => {
     return <>
-      <p className={styles.coin}>Ether : {etherBalance}</p>
-      <p className={styles.coin}>Dai : {daiBalance}</p>
-      <p className={styles.coin}>ChainLink : {chainLinkBalance}</p>
+      <p className={styles.coin}>ETH : {etherBalance}</p>
+      <p className={styles.coin}>DAI : {daiBalance}</p>
+      <p className={styles.coin}>LINK : {chainLinkBalance}</p>
     </>
   }
 
@@ -93,7 +107,7 @@ function MainPage() {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        style={customStyles}
+        style={proposalStyles}
         contentLabel="Example Modal"
       >
         <PoolProposal />
@@ -101,11 +115,17 @@ function MainPage() {
 
       <section className={styles.leftSection}>
         <div style={{display: 'flex', justifyContent: 'center'}}>
-          <Button onClick={clickPoolTab}><h1>Pool</h1></Button>
-          <Button onClick={clickOptionTab}><h1>Option</h1></Button>
+          <Button onClick={clickPoolTab}>
+            <img src={require("../assets/poolpick.png")} className={styles.pickButton}></img>
+            <h1>Pool</h1>
+            </Button>
+          <Button onClick={clickOptionTab} >
+          <img src={require("../assets/optionpick.png")} className={styles.pickButton}></img>
+            <h1>Option</h1>
+            </Button>
         </div>
 
-        {poolTab ? <h2>마음에 드는 Pool에 참여하세요 🐬</h2> : <h2>마음에 드는 Pool에 옵션을 제공하세요 🐬</h2>}
+        {poolTab ? <h2>마음에 드는 Pool에 참여하세요</h2> : <h2>마음에 드는 Pool에 옵션을 제공하세요</h2>}
         <PoolCardList isPool={poolTab}/>
       </section>
       <section className={styles.rightSection}>
@@ -122,9 +142,21 @@ function MainPage() {
             </>}
         </div>
         <div className={styles.hotdeal}>
-          <h3 id="recommnedH3">나를 위한 풀 추천 👍🏻</h3>
-          <HotDealPool title= '관악산풀' isFulled= {true}></HotDealPool>
-          <HotDealPool title= '청룡산풀' isFulled= {false}></HotDealPool>
+            {poolTab ?
+            <>
+                <h3 id="recommnedH3">나를 위한 풀 추천 👍🏻</h3>
+          <HotDealPool title= '관악산풀' isFulled= {true} isOptionFinished={false}></HotDealPool>
+          <HotDealPool title= '청룡산풀' isFulled= {false} isOptionFinished={false}></HotDealPool>
+
+            </>
+            : <>
+               <h3 id="recommnedH3">나를위한 옵션 추천 👍🏻</h3>
+          <HotDealPool title= '관악산풀' isFulled= {true} isOptionFinished={true}></HotDealPool>
+          <HotDealPool title= '청룡산풀' isFulled= {true} isOptionFinished={true}></HotDealPool>
+            </>
+            }
+          
+
         </div>
       </section>
     </main>

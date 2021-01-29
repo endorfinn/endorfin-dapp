@@ -12,7 +12,7 @@ function PoolCardList(props: Props) {
     name: 'pool 1',
     coin: [ 
       {
-       name: 'BTC',
+       name: 'AAVE',
        amount: "10"
       }, 
       {
@@ -20,7 +20,7 @@ function PoolCardList(props: Props) {
        amount: "10"
       }, 
       {
-       name: 'XRC',
+       name: 'SNX',
        amount: "10"
       }
     ]
