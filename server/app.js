@@ -8,9 +8,11 @@ require('./batch/batch');
 dotenv.config();
 
 const coinOracleRoutes = require('./routes/coinOracle');
+const proposalRoutes = require('./routes/proposal');
 
 app.use(bodyParser.json());
 app.use('/api/v1/coinoracle', coinOracleRoutes);
+app.use('/api/v1/proposal', proposalRoutes);
 
 app.use((error, req, res, next) => {
     if (res.headerSent) {
