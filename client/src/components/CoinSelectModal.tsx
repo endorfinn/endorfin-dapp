@@ -9,7 +9,7 @@ interface Props {
 
 function CoinSelectModal(props: Props) {
 
-  const officialCoins = [
+  const officialCoins = [ 
     'ETH',
     'DAI',
     'SNX',
@@ -18,7 +18,19 @@ function CoinSelectModal(props: Props) {
   const [coinSelectedlist, setCoinSelectedlist] = useState([])
 
   const addToSelectedCoinlist = (coin : string) => {
-    setCoinSelectedlist(coinlist => [...coinlist, coin]);
+    if (!(coinSelectedlist.includes(coin))){
+      setCoinSelectedlist(coinlist => [...coinlist, coin]);
+    }
+    else{
+      alert({coin} + " Coin is alread included");
+      let answer : string = prompt("Do you wanna delete this token? y/n");
+      if (answer == "y") {
+        setCoinSelectedlist(coinlist => coinlist.filter(c => c != coin));
+      } else {
+        setCoinSelectedlist(coinlist => coinlist);
+      }
+    }
+    
   }
 
   const onSetSelectedCoinInParents = () => {
@@ -26,25 +38,37 @@ function CoinSelectModal(props: Props) {
   }
 
   return (
-    <div className="coinList">
+    <div className={styles.coinSelect}>
         <div className={styles.pickheader}>
           <h1>Coin List</h1>
+          <hr/>
+            <span className={styles.pickedlabel}>picked : </span> 
+            {coinSelectedlist.map((selectedcoin) => {
+              return(
+                <img 
+                src={require('../assets/'+selectedcoin+'.svg')}
+                height = "15px"
+                width = "auto"
+              ></img>
+              )
+            })}
+          <hr/>
         </div>
         <div className={styles.coinlistwrapper}>
           {officialCoins.map((coin) => {
           return(
-          <Button onClick={()=>addToSelectedCoinlist(coin) }>
+          <Button className={styles.buttonStyle} onClick={()=>addToSelectedCoinlist(coin)} >
             <img
-              src={require('../assets/dai.svg')}
-              width="30px"
-              height="auto"
+              src={require('../assets/'+coin+'.svg')}
+              height="30px"
+              width="auto"
             />
             <span>{coin}</span>
           </Button>
           );
           })
         }
-        <Button onClick={onSetSelectedCoinInParents}>Pick</Button>
+        <Button className={styles.pickbutton} onClick={onSetSelectedCoinInParents}>Pick</Button>
         </div>
       </div>
     )

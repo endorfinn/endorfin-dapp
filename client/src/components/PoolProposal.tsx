@@ -58,8 +58,8 @@ function PoolProposal() {
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
       border: '2px solid #D51010',
-      width: '70vw',
-      height: '78vh',
+      width: '25vw',
+      height: '60vh',
       borderRadius: '16px',
     },
   }
@@ -93,6 +93,10 @@ function PoolProposal() {
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position="start">
+                          <img 
+                          src={require('../assets/'+coin+'.svg')}
+                          width="auto"
+                          height="15px"></img>
                           <p>{coin}</p>
                         </InputAdornment>
                       ),
