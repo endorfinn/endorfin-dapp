@@ -1,0 +1,97 @@
+.Background{
+    width: 100%;
+    height: 301px;
+    display: flex;
+    /* border-radius: 20px; */
+    flex-direction: row;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    border: #53D6FF 2px solid;
+    background-color: white;
+  }
+  .section1{
+    /*background-color: darkgoldenrod;*/
+    flex : 4;
+    display: flex;
+    flex-direction: column;
+  }
+  .section2{
+    flex: 11;
+    /*background-color: darkgreen;*/
+    display: flex;
+    flex-direction: column;
+  }
+  .title{
+    flex: 1;
+    /*background-color: darkgrey;*/
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .title > span {
+    font-size: 30px;
+  }
+  .tokenInfo {
+    flex : 3;
+    /*background-color: darkmagenta;*/
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .tokenInfo > span {
+    width : 60px
+  }
+  .infoList {
+    display: flex;
+    height: 40px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /*background-color : red;*/
+  }
+  .infoListTop{
+    display: flex;
+    height: 40px;
+    flex-direction: row-reverse;
+    justify-items : flex-end;
+    align-items: center;
+   /* background-color : green;*/
+  }
+  .infoListTop > span {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+  }
+  .progresstable{
+    /*background-color: aqua; */
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    height: 0;
+    z-index: 1;
+  }
+  .tablehead {
+    flex : 2;
+    display: flex;
+    /*border : black 1px dashed;*/
+    position: relative;
+    top: 30px;
+    font-weight: bold;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vh;
+    z-index: 1;
+  }
+  .tabletail{
+    flex : 2;
+    display: flex;
+    /*border : black 1px solid;*/
+    position: relative;
+    top: 30px;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vh;
+    z-index: 1;
+  }
+  .chart{
+    /*background-color : antiquewhite;*/
+  }

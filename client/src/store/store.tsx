@@ -7,6 +7,12 @@ const initialState: EndorfinState = {
   web3: null,
   daiContract: null,
   chainLinkContract: null,
+  coinPricesByTime: {
+    daiByTime : [],
+    ethByTime : [],
+    snxByTime : []
+  },
+  oracleContract: null
 };
 
 type EndorfinDispatch = Dispatch<Action>;

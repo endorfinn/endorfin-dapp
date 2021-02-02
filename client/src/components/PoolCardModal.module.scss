@@ -11,8 +11,25 @@
     align-items: center;
     margin-bottom: 16px;
 
-    i {
-      margin: 0 24px 0 12px;
+    .etherImage {
+      content: url("../assets/ethereum.svg");
+      height: 2em;
+      width: 2em;
+   }
+
+   .daiImage {
+    content: url("../assets/dai.svg");
+      height: 2em;
+      width: 2em;
+  }  
+    .linkImage {
+      content: url("../assets/link.svg");
+      width: 2em;
+      height: 2em;
+    }
+
+    img {
+      margin-right: 10px;
     }
     p {
       margin-right: 24px;
@@ -34,5 +51,21 @@
   .textfield {
     width: 13vw;
     margin: 24px 24px 24px 24px;
+  }
+  .etherImage {
+    content: url("../assets/ethereum.svg");
+    height: 2em;
+    width: 2em;
+ }
+
+ .daiImage {
+  content: url("../assets/dai.svg");
+    height: 2em;
+    width: 2em;
+}  
+  .linkImage {
+    content: url("../assets/link.svg");
+    width: 2em;
+    height: 2em;
   }
 }

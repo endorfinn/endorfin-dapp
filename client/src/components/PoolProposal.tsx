@@ -1,3 +1,4 @@
+
 import React, { useContext, useEffect, useState } from 'react'
 import { Button, InputAdornment, TextField } from '@material-ui/core'
 import Modal from 'react-modal'
@@ -19,18 +20,18 @@ function PoolProposal() {
   // const [etherBalance, setEtherBalance] = useState('');
   // const [daiBalance, setDaiBalance] = useState('');
 
+
   // const getBalancesFromUserAddress = async () => {
+
 
   //   let etherBalance = await web3.eth.getBalance(wallet[0]);
   //   etherBalance = await web3.utils.fromWei(etherBalance, 'ether');
   //   let daiBalance = await daiContract.methods.balanceOf(wallet[0]).call();
   //   daiBalance = await web3.utils.fromWei(daiBalance, 'ether');
-
   //   console.log(daiBalance);
   //   setEtherBalance(etherBalance);
   //   setDaiBalance(daiBalance);
   // }
-
   const onSubmit = async () => {
     // const { error, transactionHash } = await contract.methods.set(5).send({ from: wallet[0] });
     // const { error, transactionHash } = await daiContract.methods.transfer('0x2f72161A669C47Ca32F81F814Abc784d504e934e', web3.utils.toWei('1000', 'ether')).send({ from: wallet[0] });
@@ -41,9 +42,8 @@ function PoolProposal() {
     // }
     // console.debug('transaction Hash : ', transactionHash);
     // alert("Pool 제안이 완료되었습니다")
-    // window.location.reload();
+    window.location.reload();
   }
-
   useEffect(() => {
     // getBalancesFromUserAddress();
     // Modal.setAppElement('body');
@@ -203,3 +203,4 @@ function PoolProposal() {
 }
 
 export default PoolProposal
+
