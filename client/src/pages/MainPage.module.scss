@@ -8,6 +8,12 @@ main {
     background: white;
     border-radius: 16px;
 
+    .pickButton{
+      
+      width: 52px;
+      height: 35px;
+    }
+
     h2 {
       margin: 48px 0 40px 36px;
     }
@@ -24,9 +30,13 @@ main {
       align-items: center;
       background: white;
       width: 100%;
-      height: 32vh;
+      min-width: 350px;
+      height: auto;
       margin-bottom: 40px;
       border-radius: 16px;
+      #recommnedH3{
+        margin-bottom: 20px;
+      }
     }
 
     .hotdeal {
@@ -35,12 +45,19 @@ main {
       align-items: center;
       background: white;
       width: 100%;
-      height: 60vh;
+      height: auto;
       border-radius: 16px;
+      min-width: 350px;
     }
   }
 }
 
 .coin {
   margin: 4px 0;
+}
+.connectButton {
+  width: 150px;
+  height: 80px;
+  background-color: #D51010;
+  border: 1px solid #CDCDCD;
 }

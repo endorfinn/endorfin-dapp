@@ -12,6 +12,7 @@ function PoolCardList(props: Props) {
     name: '황금알 풀',
     coin: [ 
       {
+
        name: 'ETH',
        amount: "10",
        currentAmount: "4",
@@ -111,9 +112,11 @@ function PoolCardList(props: Props) {
 
       }, 
       {
+
        name: 'LINK',
        amount: "3",
        currentAmount: "0",
+
       }
     ]
   }

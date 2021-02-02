@@ -1,6 +1,9 @@
 import { TextField, InputAdornment, Button } from '@material-ui/core';
 import React, { useContext, useEffect, useState } from 'react';
-import { Pool } from '../utils';
+
+import Modal from 'react-modal';
+import { PoolCardList, PoolProposal } from '../components';
+
 import styles from './PoolCardModal.module.scss';
 interface Props {
   isPool: boolean;
@@ -18,18 +21,24 @@ function PoolCardModal(props: Props) {
         <h5>Token</h5> <img className={styles.etherImage} /><img className={styles.daiImage} /><img className={styles.linkImage} />
       </div>
       <div className={styles.info}>
-        <h5>전체</h5> <p style = {{marginLeft : "15px"}}>1</p> <p style = {{marginLeft : "8px"}}>2</p> <p style = {{marginLeft : "12px"}}>3</p>
+
+        <h5>전체</h5> <p style = {{marginLeft : "15px"}}>1</p> <p style = {{marginLeft : "12px"}}>2</p> <p style = {{marginLeft : "12px"}}>3</p>
+
       </div>
       {props.isPool && 
       <div className={styles.info}>
-        <h5>현재</h5> <p style = {{marginLeft : "15px"}}>0</p> <p style = {{marginLeft : "8px"}}>0</p> <p style = {{marginLeft : "12px"}}>0</p>
+
+        <h5>현재</h5> <p style = {{marginLeft : "10px"}}>0.2</p> <p style = {{marginLeft : "3px"}}>0.4</p> <p style = {{marginLeft : "1px"}}>0.6</p>
+
       </div>
 }
       <div className={styles.info}>
-        <h5>참여 기간</h5> <p>1개월</p> <h5 style = {{marginLeft : "90px"}}>행사가격</h5> <p>400 DAI</p>
+
+        <h5>참여 기간</h5> <p>6개월</p> <h5 style = {{marginLeft : "90px"}}>행사가격</h5> <p>5000 DAI</p>
       </div>
       <div className={styles.info}>
-        <h5>모집 마감일</h5> <p>2020.12.13 (UTC)</p> <h5>프리미엄</h5> <p>10 DAI</p>
+        <h5>모집 마감일</h5> <p>2020.12.05 (UTC)</p> <h5>프리미엄</h5> <p>2 DAI</p>
+
       </div>
       { props.isPool ?
         <>

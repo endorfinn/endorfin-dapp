@@ -12,8 +12,7 @@ export interface EndorfinState {
   web3: any;
   daiContract: any;
   chainLinkContract: any;
-  coinPricesByTime: CoinPricesByTime;
-  oracleContract: any;
+
 }
 
 export interface Action {
@@ -48,18 +47,7 @@ const reducer = (state: EndorfinState, action: Action) => {
         ...state,
         chainLinkContract: action.value
       }
-    case 'SET_COIN_PRICE_BY_TIME':
-      return {
-        ...state,
-        coinPricesByTime: action.value
-      }
-    case 'SET_ORACLE_CONTRACT':
-      return {
-        ...state,
-        oracleContract: action.value
-      }
 
-    
     default: return state;
   }
 }

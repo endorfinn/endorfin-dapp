@@ -5,6 +5,8 @@ import styles from './MainPage.module.scss';
 import './MainPage.module.scss';
 import { EndorfinContext } from '../store/store';
 import { Button } from '@material-ui/core';
+import HotDealPool from '../components/HotDeal';
+
 
 function MainPage() {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -47,7 +49,8 @@ function MainPage() {
     Modal.setAppElement('body');
   })
 
-  const customStyles = {
+  
+  const proposalStyles = {
     content: {
       top: '50%',
       left: '50%',
@@ -55,7 +58,7 @@ function MainPage() {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      border: '2px solid rgba(0, 0, 0, 0.25)',
+      border: '2px solid #D51010',
       width: '70vw',
       height: '78vh',
       borderRadius: '16px',
@@ -64,7 +67,7 @@ function MainPage() {
 
   const connectWallet = async () => {
     if (!state.wallet.length) {
-      await window.ethereum.enable()
+      await window.ethereum.enable();
       const accounts = await window.ethereum.request({ method: 'eth_accounts' });
       dispatch({ type: "SET_WALLET", value: accounts });
     }
@@ -72,9 +75,9 @@ function MainPage() {
 
   const showMyCoins = () => {
     return <>
-      <p className={styles.coin}>Ether : {etherBalance}</p>
-      <p className={styles.coin}>Dai : {daiBalance}</p>
-      <p className={styles.coin}>ChainLink : {chainLinkBalance}</p>
+      <p className={styles.coin}>ETH : {etherBalance}</p>
+      <p className={styles.coin}>DAI : {daiBalance}</p>
+      <p className={styles.coin}>LINK : {chainLinkBalance}</p>
     </>
   }
 
@@ -91,7 +94,7 @@ function MainPage() {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        style={customStyles}
+        style={proposalStyles}
         contentLabel="Example Modal"
       >
         <PoolProposal />
@@ -99,11 +102,17 @@ function MainPage() {
 
       <section className={styles.leftSection}>
         <div style={{display: 'flex', justifyContent: 'center'}}>
-          <Button onClick={clickPoolTab}><h1>Pool</h1></Button>
-          <Button onClick={clickOptionTab}><h1>Option</h1></Button>
+          <Button onClick={clickPoolTab}>
+            <img src={require("../assets/poolpick.png")} className={styles.pickButton}></img>
+            <h1>Pool</h1>
+            </Button>
+          <Button onClick={clickOptionTab} >
+          <img src={require("../assets/optionpick.png")} className={styles.pickButton}></img>
+            <h1>Option</h1>
+            </Button>
         </div>
 
-        {poolTab ? <h2>마음에 드는 Pool에 참여하세요 🐬</h2> : <h2>마음에 드는 Pool에 옵션을 제공하세요 🐬</h2>}
+        {poolTab ? <h2>마음에 드는 Pool에 참여하세요</h2> : <h2>마음에 드는 Pool에 옵션을 제공하세요</h2>}
         <PoolCardList isPool={poolTab}/>
       </section>
       <section className={styles.rightSection}>
@@ -112,15 +121,28 @@ function MainPage() {
           {(!state.wallet.length) ?
             <>
               <h4>지갑을 연결해 풀에 참여해 보세요 👛</h4>
-              <Button onClick={connectWallet}>연결하기</Button>
+              <Button onClick={connectWallet} className={styles.connectButton}>연결하기</Button>
             </>
             : <>
               {showMyCoins()}
-              <h4>직접 풀을 제안해 보세요 👛</h4><Button onClick={openModal}>풀 제안하기</Button>
+              <h4>직접 풀을 제안해 보세요 👛</h4><Button onClick={openModal} className={styles.connectButton}>풀 제안하기</Button>
             </>}
         </div>
         <div className={styles.hotdeal}>
-          <h3>나를 위한 풀 추천 👍🏻</h3>
+            {poolTab ?
+            <>
+                <h3 id="recommnedH3">나를 위한 풀 추천 👍🏻</h3>
+          <HotDealPool title= '관악산풀' isFulled= {true} isOptionFinished={false}></HotDealPool>
+          <HotDealPool title= '청룡산풀' isFulled= {false} isOptionFinished={false}></HotDealPool>
+
+            </>
+            : <>
+               <h3 id="recommnedH3">나를위한 옵션 추천 👍🏻</h3>
+          <HotDealPool title= '관악산풀' isFulled= {true} isOptionFinished={true}></HotDealPool>
+          <HotDealPool title= '청룡산풀' isFulled= {true} isOptionFinished={true}></HotDealPool>
+            </>
+            }
+          
 
         </div>
       </section>

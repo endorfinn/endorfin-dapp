@@ -1,0 +1,44 @@
+.coinSelect{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+
+  h1 {
+    flex : 2;
+    text-align: left;
+  }
+  hr{
+    border: burlywood 1px solid;
+    width : 25vh
+  }
+  .pickedlabel{
+    text-align: left;
+  }
+  .pickheader{
+    flex: 3;
+    
+  }
+  .coinlistwrapper{
+    flex : 7;
+    
+    display: flex;
+    flex-direction: column;
+  }
+  .buttonStyle{ 
+    width: 20vw;
+    height: 80px;
+    border: bisque 1px solid;
+    
+  }
+  .pickbutton{
+    background-color: #D51010;
+    color: white;
+  }
+  .pickbutton :hover{
+    color: black;
+  }
+
+  
+}

@@ -1,0 +1,118 @@
+
+
+.wrapper {
+    width : 360px;
+    height: 156px;
+    border-radius: 2vh;
+    box-shadow: 0px 5px 5px 1px  rgba(188,188,188,0.5);
+    background-color: #f0f0f0;
+    margin-bottom: 30px;
+    h3{
+        margin-left: 20px;
+        margin-bottom: 1px;
+    }
+    .progressBar{
+        width: 230px;
+        height: 5px;
+        position: relative;
+        background-color: #fff;
+        left: 100px;
+        top: -10px;
+        
+    }
+    .progressBarInside{
+        width: 230px;
+        height: 5px;
+        position: relative ;
+        background-color: #53D6ff;
+        left: 100px;
+        top: -10px;
+        
+    }
+}
+
+
+
+.wrapperOptionProgress{
+    width : 360px;
+    height: 156px;
+    border-radius: 2vh;
+    border: 2px solid #53D6ff;
+    background-color: #fff;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 5px 1px rgba(188,188,188,0.5);
+    margin-bottom: 30px;
+    h3{
+        margin-left: 20px;
+        margin-bottom: 1px;
+    }
+    .progressBar{
+        width: 230px;
+        height: 5px;
+        position: relative;
+        background-color:#53D6ff;
+        left: 100px;
+        top: -10px;
+        
+    }
+    .progressBarInside{
+        width: 230px;
+        height: 5px;
+        position: relative ;
+        background-color: #AF1ab2;
+        left: 100px;
+        top: -10px;
+    }
+}
+
+.optionFinished{
+    width : 360px;
+    height: 156px;
+    border-radius: 2vh;
+    border: 2px solid #AF1ab2;
+    background-color: #fff;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 5px 1px rgba(188,188,188,0.5);
+    margin-bottom: 30px;
+    h3{
+        margin-left: 20px;
+        margin-bottom: 1px;
+    }
+    .progressBar{
+        display: none;
+        width: 230px;
+        height: 5px;
+        position: relative;
+        background-color:#53D6ff;
+        left: 100px;
+        top: -10px;
+        
+    }
+    .progressBarInside{
+        display: none;
+        width: 230px;
+        height: 5px;
+        position: relative ;
+        background-color: #AF1ab2;
+        left: 100px;
+        top: -10px;
+    }
+}
+
+table {
+    width : 45vh;
+    min-width: 250px;
+    height : 80px;
+    thead{
+        text-align: center;
+    }
+    tbody{
+        text-align: center;
+    }
+   
+}
+.tokenImage {
+    content: url("../assets/ETH.svg");
+    width: 1em;
+    height: 1em;
+  }
