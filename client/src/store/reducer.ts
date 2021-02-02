@@ -6,6 +6,7 @@ export interface EndorfinState {
   web3: any;
   daiContract: any;
   chainLinkContract: any;
+  
 }
 
 export interface Action {
@@ -40,6 +41,7 @@ const reducer = (state: EndorfinState, action: Action) => {
         ...state,
         chainLinkContract: action.value
       }
+
     default: return state;
   }
 }

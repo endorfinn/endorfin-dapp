@@ -67,7 +67,7 @@ function MainPage() {
 
   const connectWallet = async () => {
     if (!state.wallet.length) {
-      await window.ethereum.enable()
+      await window.ethereum.enable();
       const accounts = await window.ethereum.request({ method: 'eth_accounts' });
       dispatch({ type: "SET_WALLET", value: accounts });
     }
@@ -121,11 +121,11 @@ function MainPage() {
           {(!state.wallet.length) ?
             <>
               <h4>지갑을 연결해 풀에 참여해 보세요 👛</h4>
-              <Button onClick={connectWallet}>연결하기</Button>
+              <Button onClick={connectWallet} className={styles.connectButton}>연결하기</Button>
             </>
             : <>
               {showMyCoins()}
-              <h4>직접 풀을 제안해 보세요 👛</h4><Button onClick={openModal}>풀 제안하기</Button>
+              <h4>직접 풀을 제안해 보세요 👛</h4><Button onClick={openModal} className={styles.connectButton}>풀 제안하기</Button>
             </>}
         </div>
         <div className={styles.hotdeal}>

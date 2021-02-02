@@ -20,7 +20,7 @@
     border-radius: 12px;
     margin-bottom: 1vh;
     text-align: center;
-
+    cursor: pointer;
    
 
 
@@ -71,7 +71,7 @@
         width: 3em;
     }  
       .aaveImage {
-        content: url("../assets/BNB.svg");
+        content: url("../assets/LINK.svg");
         width: 3em;
         height: 3em;
       }
@@ -142,5 +142,10 @@
       //   }
       // }
     }
+    &:hover{
+      background-color: blanchedalmond;
+      border: burlywood 1px solid;
+    }
   }
+  
 }

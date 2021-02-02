@@ -119,16 +119,17 @@ function PoolProposal() {
           <h4 style={{ textAlign: 'right' }}>Pool 모집 시작</h4>
           <TextField
             className={styles.textfield}
-            type="date"
-            defaultValue="2020-12-04"
+            type="datetime-local"
+            defaultValue="2021-02-20T11:30"
           />
+          
           <h4 style={{ textAlign: 'right', marginLeft: '30px' }}>
             Pool 모집 마감(시작일 24시간 후)
           </h4>
           <TextField
             className={styles.textfield}
-            type="text"
-            defaultValue="2020/12/05"
+            type="datetime-local"
+            defaultValue="2021-02-20T11:30"
           />
         </div>
 
@@ -136,16 +137,16 @@ function PoolProposal() {
           <h4 style={{ textAlign: 'right' }}>옵션 모집 시작</h4>
           <TextField
             className={styles.textfield}
-            type="text"
-            defaultValue="2020/12/06"
+            type="datetime-local"
+            defaultValue="2021-02-20T11:30"
           />
           <h4 style={{ textAlign: 'right', marginLeft: '40px' }}>
             옵션 모집 만기(시작일 24시간 후)
           </h4>
           <TextField
             className={styles.textfield}
-            type="text"
-            defaultValue="2020/12/07"
+            type="datetime-local"
+            defaultValue="2021-02-20T11:30"
           />
         </div>
         <div className={styles.inputWrapper}>
@@ -160,7 +161,13 @@ function PoolProposal() {
             }}
             InputProps={{
               startAdornment: (
+
                 <InputAdornment position="start">
+                  <img
+              src={require('../assets/DAI.svg')}
+              height="15px"
+              width="auto"
+            />
                   <p>DAI </p>
                 </InputAdornment>
               ),
@@ -171,16 +178,16 @@ function PoolProposal() {
           </h4>
           <TextField
             className={styles.textfield}
-            type="date"
-            defaultValue="2020-12-08"
+            type="datetime-local"
+            defaultValue="2021-02-20T11:30"
           />
         </div>
 
         <div className={styles.inputWrapper}>
           <h4 style={{ textAlign: 'right' }}>옵션 프리미엄/주기</h4>
-          <TextField className={styles.textfield} type="text" />
-          <h3>DAI</h3>
-          <h2 style={{ marginLeft: '30px' }}>/</h2>
+          <TextField className={styles.textfield} type="text">
+          <p>DAI</p>  
+          </TextField>
           <TextField className={styles.textfield} type="text" />
           <h5>시간</h5>
         </div>

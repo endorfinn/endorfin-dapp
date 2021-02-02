@@ -13,7 +13,7 @@ function CoinSelectModal(props: Props) {
     'ETH',
     'DAI',
     'SNX',
-    'BNB'
+    'LINK'
   ];
   const [coinSelectedlist, setCoinSelectedlist] = useState([])
 
