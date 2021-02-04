@@ -2,14 +2,33 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Button, InputAdornment, TextField } from '@material-ui/core'
 import Modal from 'react-modal'
+import { useForm } from 'react-hook-form'
+import getUnixTime from 'date-fns/getUnixTime'
 import styles from './PoolProposal.module.scss'
 import { EndorfinContext } from '../store/store'
-import { red } from '@material-ui/core/colors'
 import CoinSelectModal from './CoinSelectModal'
+import createProposal from '../constractAPIs/createProposal'
+
+interface HouseCreateFormData {
+  proposalTokenOne: string;
+  proposalTokenTwo: string;
+  proposalTokenThree: string;
+  proposalTokenValueOne: number;
+  proposalTokenValueTwo: number;
+  proposalTokenValueThree: number;
+  fundingStartTime: Date;
+  fundingEndTime: Date;
+  optionPrice: number;
+  optionPremium: number;
+  optionInterval: number;
+  commission: number;
+  name: string;
+  symbol: string;   
+}
 
 function PoolProposal() {
   const { state } = useContext(EndorfinContext)
-  const { contract, wallet, web3, daiContract } = state
+  const { poolFactoryContract, wallet, web3, daiContract } = state
   const [coinSelectedlist, setCoinSelectedlist] = useState<string[]>([])
   const [isCoinModalOpen, setIsCoinModalOpen] = useState(false)
   const onSetCoinSelectedlist = (coinList: string[]) => {
@@ -17,37 +36,48 @@ function PoolProposal() {
     setIsCoinModalOpen(!isCoinModalOpen)
   }
 
-  // const [etherBalance, setEtherBalance] = useState('');
-  // const [daiBalance, setDaiBalance] = useState('');
+  const {
+    register, handleSubmit, errors,
+  } = useForm<HouseCreateFormData>();
 
+  const onSubmit = (data: HouseCreateFormData) => {
+    const networkName = 'kovan';
 
-  // const getBalancesFromUserAddress = async () => {
+    // Sample Data
+    const proposalTokens = [
+      {
+      "tokenAddress": "0xc778417e063141139fce010982780140aa0cd5ab",
+      "amount": "10"
+      },
+      {
+      "tokenAddress": "0x44d0bbe7e344d0da45d3b60d5038607b2c596365",
+      "amount": "20"
+      }
+    ];
 
+    const totalTokenAmount = 100;
+    const commission = 100;
+    //
 
-  //   let etherBalance = await web3.eth.getBalance(wallet[0]);
-  //   etherBalance = await web3.utils.fromWei(etherBalance, 'ether');
-  //   let daiBalance = await daiContract.methods.balanceOf(wallet[0]).call();
-  //   daiBalance = await web3.utils.fromWei(daiBalance, 'ether');
-  //   console.log(daiBalance);
-  //   setEtherBalance(etherBalance);
-  //   setDaiBalance(daiBalance);
-  // }
-  const onSubmit = async () => {
-    // const { error, transactionHash } = await contract.methods.set(5).send({ from: wallet[0] });
-    // const { error, transactionHash } = await daiContract.methods.transfer('0x2f72161A669C47Ca32F81F814Abc784d504e934e', web3.utils.toWei('1000', 'ether')).send({ from: wallet[0] });
-    // if (error) {
-    //   console.debug('send 호출에서 에러 발생 : ', error);
-    //   alert("에러가 발생했습니다")
-    //   return
-    // }
-    // console.debug('transaction Hash : ', transactionHash);
-    // alert("Pool 제안이 완료되었습니다")
-    window.location.reload();
-  }
-  useEffect(() => {
-    // getBalancesFromUserAddress();
-    // Modal.setAppElement('body');
-  })
+    const fundingStartTime = new Date(data.fundingStartTime).getTime();
+    const fundingEndTime = new Date(data.fundingEndTime).getTime();
+
+    createProposal(
+      poolFactoryContract, 
+      networkName, 
+      wallet[0], 
+      proposalTokens, 
+      totalTokenAmount, 
+      fundingStartTime,
+      fundingEndTime,
+      data.optionPrice,
+      data.optionPremium,
+      data.optionInterval,
+      commission,
+      data.name,
+      data.symbol 
+     );
+  };
 
   const proposalStyles = {
     content: {
@@ -65,7 +95,6 @@ function PoolProposal() {
   }
 
   const openModal = () => {
-
     setIsCoinModalOpen(!isCoinModalOpen)
   }
 
@@ -74,7 +103,7 @@ function PoolProposal() {
       <Modal isOpen={isCoinModalOpen} style={proposalStyles}>
         <CoinSelectModal setSelectedCoinInParents={onSetCoinSelectedlist} />
       </Modal>
-      <form className={styles.poolProposal}>
+      <form className={styles.poolProposal} onSubmit={handleSubmit(onSubmit)}>
         <h3 id="modalTitle">Pool 제안하기</h3>
         <div className={styles.inputWrapper}>
           <h4 style={{ marginRight: '3em', textAlign: 'right' }}>
@@ -118,6 +147,8 @@ function PoolProposal() {
         <div className={styles.inputWrapper}>
           <h4 style={{ textAlign: 'right' }}>Pool 모집 시작</h4>
           <TextField
+            name="fundingStartTime"
+            inputRef={register({ required: true })}
             className={styles.textfield}
             type="datetime-local"
             defaultValue="2021-02-20T11:30"
@@ -127,6 +158,8 @@ function PoolProposal() {
             Pool 모집 마감(시작일 24시간 후)
           </h4>
           <TextField
+            name="fundingEndTime"
+            inputRef={register({ required: true })}
             className={styles.textfield}
             type="datetime-local"
             defaultValue="2021-02-20T11:30"
@@ -154,6 +187,8 @@ function PoolProposal() {
             옵션 행사가격
           </h4>
           <TextField
+            name="optionPrice"
+            inputRef={register({ required: true })}
             className={styles.textfield}
             type="number"
             InputLabelProps={{
@@ -185,16 +220,39 @@ function PoolProposal() {
 
         <div className={styles.inputWrapper}>
           <h4 style={{ textAlign: 'right' }}>옵션 프리미엄/주기</h4>
-          <TextField className={styles.textfield} type="text">
-          <p>DAI</p>  
-          </TextField>
-          <TextField className={styles.textfield} type="text" />
+          <TextField 
+            name="optionPremium"
+            inputRef={register({ required: true })} 
+            className={styles.textfield} 
+            type="number"
+          />
+          <p>DAI</p>
+          <TextField
+            name="optionInterval"
+            inputRef={register({ required: true })}  
+            className={styles.textfield} 
+            type="number"
+          />
           <h5>시간</h5>
         </div>
-        <Button onClick={onSubmit} style={{ color: 'red' }}>
+        <div className={styles.inputWrapper}>
+          <h4 style={{ textAlign: 'right' }}>풀 이름</h4>
+          <TextField 
+            name="name"
+            inputRef={register({ required: true })} 
+            className={styles.textfield} 
+          />
+          <h4 style={{ textAlign: 'right' }}>풀 심볼(symbol)</h4>
+          <TextField 
+            name="symbol"
+            inputRef={register({ required: true })} 
+            className={styles.textfield} 
+          />  
+        </div>
+        <Button type="submit" style={{ color: 'red' }}>
           <h3>제안하기</h3>
         </Button>
-        <Button onClick={onSubmit}>
+        <Button>
           <h3>다음에</h3>
         </Button>
       </form>
