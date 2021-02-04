@@ -3,6 +3,10 @@ import './utils/env';
 
 const getWeb3 = () =>
   new Promise((resolve, reject) => {
+    if (window.ethereum) {
+        const web3 = new Web3(window.ethereum);
+        resolve(web3);
+    } else {
     window.addEventListener("load", async () => {
       const provider = new Web3.providers.HttpProvider(
           process.env.REACT_APP_WEB3_HTTP_PROVIDER_URI!
@@ -10,6 +14,7 @@ const getWeb3 = () =>
       const web3 = new Web3(provider);
         resolve(web3);
     });
+    }
   });
 
 export default getWeb3;
