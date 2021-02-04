@@ -8,7 +8,7 @@ interface CoinPricesByTime {
 
 export interface EndorfinState {
   wallet: string;
-  contract: any;
+  poolFactoryContract: any;
   web3: any;
   daiContract: any;
   chainLinkContract: any;
@@ -30,7 +30,7 @@ const reducer = (state: EndorfinState, action: Action) => {
     case 'SET_POOLFACTORY_CONTRACT':
       return {
         ...state,
-        contract: action.value
+        poolFactoryContract: action.value
       }
     case 'SET_WEB3':
       return {

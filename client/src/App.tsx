@@ -4,6 +4,7 @@ import getWeb3 from "./getWeb3";
 import { MainPage, MyPage } from './pages';
 import { Header } from './components';
 import { EndorfinContext } from './store/store';
+import { abi as poolFactoryContractAbi, address as poolFactoryContractAddress } from './customContracts/poolPropasalFactoryContract';
 import "./App.css";
 import Web3 from "web3";
 
@@ -16,8 +17,10 @@ function App() {
     try {
       // TODO: 메인넷 / 테스트넷 / 로컬 가나슈 일 때 설정 분기하기
       const web3 = await getWeb3();
+      const poolFactoryInstance = await makePoolFactoryInstance(web3, poolFactoryContractAbi, poolFactoryContractAddress );
       const oracleInstance = await new web3.eth.Contract(oracleABI, oracleAddress);
   
+      dispatch({ type: "SET_POOLFACTORY_CONTRACT", value: poolFactoryInstance });
       dispatch({ type: "SET_WEB3", value: web3 });
       dispatch({ type: "SET_ORACLE_CONTRACT", value: oracleInstance})
 
