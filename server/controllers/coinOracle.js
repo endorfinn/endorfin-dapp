@@ -31,13 +31,13 @@ const createCoinOracle = async (req, res, next) => {
   }
 
   const {
-    eth, dai, bnb, snx, callTime
+    eth, dai, snx, link, callTime
   } = req.body;
 
   let coinOracle;
   try {
     coinOracle = await coinOracleService.create(
-        eth, dai, bnb, snx, callTime
+        eth, dai, snx, link, callTime
     );
   } catch (err) {
     const error = new HttpError(

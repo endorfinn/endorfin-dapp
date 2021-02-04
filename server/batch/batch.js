@@ -21,9 +21,9 @@ cron.schedule('*/2 * * * *', async () => {
         DAIprice,
         DAItimeStamp,
         DAIroundID,
-        BNBprice,
-        BNBtimeStamp,
-        BNBroundID,
+        LINKprice,
+        LINKtimeStamp,
+        LINKroundID,
         standardTimeStamp
     } = await callChainlinkOracle();
 
@@ -38,19 +38,19 @@ cron.schedule('*/2 * * * *', async () => {
             timestamp: DAItimeStamp,
             roundId: DAIroundID,
         },
-        bnb: {
-            price: BNBprice,
-            timestamp: BNBtimeStamp,
-            roundId: BNBroundID,
-        },
         snx: {
             price: SNXprice,
             timestamp: SNXtimeStamp,
             roundId: SNXroundID,
         },
+        link: {
+            price: LINKprice,
+            timestamp: LINKtimeStamp,
+            roundId: LINKroundID, 
+        },
         callTime: standardTimeStamp
     }
 
-    const coinOracle = await coinOracleService.create(param.eth, param.dai, param.bnb, param.snx, param.callTime);
+    const coinOracle = await coinOracleService.create(param.eth, param.dai, param.snx, param.link, param.callTime);
     console.debug(coinOracle);
 });

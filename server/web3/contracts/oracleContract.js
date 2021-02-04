@@ -1,33 +1,10 @@
-const address = "0x7A2c40D5744ff3556CE5d47f81b6dDD994effc36";
+const address = "0x66C99F13cDc8700f75D998b92d40EE64eba2E1C1";
 
 const abi = [
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
-	},
-	{
-		"inputs": [],
-		"name": "getLatestBNB",
-		"outputs": [
-			{
-				"internalType": "int256",
-				"name": "BNBprice",
-				"type": "int256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "BNBtimeStamp",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint80",
-				"name": "BNBroundID",
-				"type": "uint80"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
 	},
 	{
 		"inputs": [],
@@ -103,17 +80,17 @@ const abi = [
 			},
 			{
 				"internalType": "int256",
-				"name": "BNBprice",
+				"name": "LINKprice",
 				"type": "int256"
 			},
 			{
 				"internalType": "uint256",
-				"name": "BNBtimeStamp",
+				"name": "LINKtimeStamp",
 				"type": "uint256"
 			},
 			{
 				"internalType": "uint80",
-				"name": "BNBroundID",
+				"name": "LINKroundID",
 				"type": "uint80"
 			},
 			{
@@ -142,6 +119,29 @@ const abi = [
 			{
 				"internalType": "uint80",
 				"name": "ETHroundID",
+				"type": "uint80"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getLatestLINK",
+		"outputs": [
+			{
+				"internalType": "int256",
+				"name": "LINKprice",
+				"type": "int256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "LINKtimeStamp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint80",
+				"name": "LINKroundID",
 				"type": "uint80"
 			}
 		],

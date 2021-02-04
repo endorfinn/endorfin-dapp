@@ -11,15 +11,15 @@ const CoinOracleSchema = new mongoose.Schema({
     timestamp: { type: Number },
     roundId: { type: Number }
   },
-  bnb: {
-    price: { type: Number },
-    timestamp: { type: Number },
-    roundId: { type: Number }
-  },
   snx: {
     price: { type: Number },
     timestamp: { type: Number },
     roundId: { type: Number }
+  },
+  link: {
+    price: { type: Number },
+    timestamp: { type: Number },
+    roundId: { type: Number } 
   },
   callTime: { type: Number },
 });

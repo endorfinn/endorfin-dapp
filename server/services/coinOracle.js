@@ -5,9 +5,9 @@ const get = async (callTime) => {
   return coinOracle;
 }
 
-const create = async (eth, dai, bnb, snx, callTime) => {
+const create = async (eth, dai, snx, link, callTime) => {
   const coinOracle = new CoinOracle({
-    eth, dai, bnb, snx, callTime
+    eth, dai, snx, link, callTime
   });
   const result = await coinOracle.save();
   return result;
