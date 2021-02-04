@@ -46,7 +46,7 @@ function CoinSelectModal(props: Props) {
             {coinSelectedlist.map((selectedcoin) => {
               return(
                 <img 
-                src={require('../assets/'+selectedcoin+'.svg')}
+                src={require('../assets/coin/'+selectedcoin+'.svg')}
                 height = "15px"
                 width = "auto"
               ></img>
@@ -59,7 +59,7 @@ function CoinSelectModal(props: Props) {
           return(
           <Button className={styles.buttonStyle} onClick={()=>addToSelectedCoinlist(coin)} >
             <img
-              src={require('../assets/'+coin+'.svg')}
+              src={require('../assets/coin/'+coin+'.svg')}
               height="30px"
               width="auto"
             />

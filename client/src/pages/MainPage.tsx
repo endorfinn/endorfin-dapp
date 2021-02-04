@@ -103,11 +103,11 @@ function MainPage() {
       <section className={styles.leftSection}>
         <div style={{display: 'flex', justifyContent: 'center'}}>
           <Button onClick={clickPoolTab}>
-            <img src={require("../assets/poolpick.png")} className={styles.pickButton}></img>
+            <img src={require("../assets//poolpick.png")} className={styles.pickButton}></img>
             <h1>Pool</h1>
             </Button>
           <Button onClick={clickOptionTab} >
-          <img src={require("../assets/optionpick.png")} className={styles.pickButton}></img>
+          <img src={require("../assets//optionpick.png")} className={styles.pickButton}></img>
             <h1>Option</h1>
             </Button>
         </div>

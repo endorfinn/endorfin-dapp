@@ -94,7 +94,7 @@ function PoolProposal() {
                       startAdornment: (
                         <InputAdornment position="start">
                           <img 
-                          src={require('../assets/'+coin+'.svg')}
+                          src={require('../assets/coin/'+coin+'.svg')}
                           width="auto"
                           height="15px"></img>
                           <p>{coin}</p>
@@ -164,7 +164,7 @@ function PoolProposal() {
 
                 <InputAdornment position="start">
                   <img
-              src={require('../assets/DAI.svg')}
+              src={require('../assets/coin/DAI.svg')}
               height="15px"
               width="auto"
             />
