@@ -1,13 +1,13 @@
 import React, { useContext, useEffect } from "react";
 import { Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom';
+import Web3 from "web3";
 import getWeb3 from "./getWeb3";
 import { MainPage, MyPage } from './pages';
 import { Header } from './components';
 import { EndorfinContext } from './store/store';
 import { abi as poolFactoryContractAbi, address as poolFactoryContractAddress } from './customContracts/poolPropasalFactoryContract';
 import "./App.css";
-import Web3 from "web3";
-
+import { getDaiInstance, getSNXInstance } from './utils/devSettings';
 import {address as oracleAddress, abi as oracleABI} from './utils/oracleContract'
 
 function App() {
@@ -23,6 +23,11 @@ function App() {
       dispatch({ type: "SET_POOLFACTORY_CONTRACT", value: poolFactoryInstance });
       dispatch({ type: "SET_WEB3", value: web3 });
       dispatch({ type: "SET_ORACLE_CONTRACT", value: oracleInstance})
+
+      const daiInstance = await getDaiInstance(web3);
+      const snxInstance = await getSNXInstance(web3);       
+      dispatch({ type: "SET_DAI_CONTRACT", value: daiInstance });
+      dispatch({ type: "SET_SNX_CONTRACT", value: snxInstance });
 
     } catch (error) {
       alert(

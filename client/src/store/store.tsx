@@ -3,14 +3,15 @@ import reducer, { Action, EndorfinState } from './reducer';
 
 const initialState: EndorfinState = {
   wallet: "",
-  contract: null,
+  poolFactoryContract: null,
   web3: null,
   daiContract: null,
   chainLinkContract: null,
+  snxContract: null,
   coinPricesByTime: {
     daiByTime : [],
     ethByTime : [],
-    snxByTime : []
+    snxByTime : [],
   },
   oracleContract: null
 };

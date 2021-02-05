@@ -12,24 +12,25 @@ function MainPage() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [etherBalance, setEtherBalance] = useState('0');
   const [daiBalance, setDaiBalance] = useState('0');
-  const [chainLinkBalance, setChainLinkBalance] = useState('0');
+  const [snxBalance, setSnxBalance] = useState('0');
   const [poolTab, setPoolTab] = useState(true);
 
   const { state, dispatch } = useContext(EndorfinContext);
-  const { wallet, web3, daiContract, chainLinkContract } = state;
+  const { wallet, web3, daiContract, snxContract } = state;
 
   const getBalancesFromUserAddress = async () => {
-    if (web3 && daiContract && chainLinkContract && Boolean(wallet)) {
+    if (web3 && daiContract && snxContract && Boolean(wallet)) {
       let etherBalance = await web3.eth.getBalance(wallet[0]);
       etherBalance = await web3.utils.fromWei(etherBalance, 'ether');
       let daiBalance = await daiContract.methods.balanceOf(wallet[0]).call();
       daiBalance = await web3.utils.fromWei(daiBalance, 'ether');
-      let chainLinkBalance = await chainLinkContract.methods.balanceOf(wallet[0]).call();
-      chainLinkBalance = await web3.utils.fromWei(chainLinkBalance, 'ether');
+      let snxBalance = await snxContract.methods.balanceOf(wallet[0]).call();
+      snxBalance = await web3.utils.fromWei(snxBalance, 'ether');
+    
+      setEtherBalance(parseFloat(etherBalance).toFixed(2));
+      setDaiBalance(parseFloat(daiBalance).toFixed(2));
+      setSnxBalance(parseFloat(snxBalance).toFixed(2));
 
-      setEtherBalance(etherBalance);
-      setDaiBalance(daiBalance);
-      setChainLinkBalance(chainLinkBalance);
     }
   }
 
@@ -77,7 +78,7 @@ function MainPage() {
     return <>
       <p className={styles.coin}>ETH : {etherBalance}</p>
       <p className={styles.coin}>DAI : {daiBalance}</p>
-      <p className={styles.coin}>LINK : {chainLinkBalance}</p>
+      <p className={styles.coin}>SNX : {snxBalance}</p>
     </>
   }
 
