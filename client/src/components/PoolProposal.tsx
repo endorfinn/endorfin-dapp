@@ -8,6 +8,7 @@ import styles from './PoolProposal.module.scss'
 import { EndorfinContext } from '../store/store'
 import CoinSelectModal from './CoinSelectModal'
 import createProposal from '../constractAPIs/createProposal'
+import { address as poolFactoryContractAddress } from '../customContracts/poolPropasalFactoryContract';
 
 interface HouseCreateFormData {
   proposalTokenOne: string;
@@ -40,18 +41,25 @@ function PoolProposal() {
     register, handleSubmit, errors,
   } = useForm<HouseCreateFormData>();
 
-  const onSubmit = (data: HouseCreateFormData) => {
+  const approveDai = async (fromAddress: string, toAddress: string, value: number) => {
+    daiContract.methods.approve(toAddress, value).send({from: fromAddress});
+  }
+
+  const onSubmit = async (data: HouseCreateFormData) => {
     const networkName = 'kovan';
+
+    const linkAddress = '0xa36085f69e2889c224210f603d836748e7dc0088';
+    const daiAddress = '0x4f96fe3b7a6cf9725f59d353f723c1bdb64ca6aa'
 
     // Sample Data
     const proposalTokens = [
       {
-      "tokenAddress": "0xc778417e063141139fce010982780140aa0cd5ab",
-      "amount": "10"
+      "tokenAddress": linkAddress,
+      "amount": "1"
       },
       {
-      "tokenAddress": "0x44d0bbe7e344d0da45d3b60d5038607b2c596365",
-      "amount": "20"
+      "tokenAddress": daiAddress,
+      "amount": "2"
       }
     ];
 
@@ -61,6 +69,7 @@ function PoolProposal() {
 
     const fundingStartTime = new Date(data.fundingStartTime).getTime();
     const fundingEndTime = new Date(data.fundingEndTime).getTime();
+    await approveDai(wallet[0], poolFactoryContractAddress, 2);
 
     createProposal(
       poolFactoryContract, 
